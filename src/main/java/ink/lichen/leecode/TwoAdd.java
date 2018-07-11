@@ -31,37 +31,39 @@ public class TwoAdd {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
-        List<Integer> list = new ArrayList<Integer>(  );
-
-        List<Integer> list2 = new ArrayList<Integer>(  );
-
-        List<Integer> retList = new ArrayList<Integer>( );
-
-        while(l1.next != null){
-            list.add( l1.val );
-            l1 = l1.next;
-        }
-
-        while(l2.next != null){
-            list2.add( l2.val );
-            l2 = l2.next;
-        }
-
-
-        int rem = 0;
-        int div = 0;
-
-
-        for (int i = list2.size() ; i < list2.size() ; i--) {
-
-
-        }
+//        List<Integer> list = new ArrayList<Integer>(  );
+//
+//        List<Integer> list2 = new ArrayList<Integer>(  );
+//
+//        List<Integer> retList = new ArrayList<Integer>( );
+//
+//        while(l1.next != null){
+//            list.add( l1.val );
+//            l1 = l1.next;
+//        }
+//
+//        while(l2.next != null){
+//            list2.add( l2.val );
+//            l2 = l2.next;
+//        }
+//
+//
+//        int rem = 0;
+//        int div = 0;
+//
+//
+//        for (int i = list2.size() ; i < list2.size() ; i--) {
+//
+//
+//        }
 
 //        for ( int i = 0; )
 
 //        return ret;
         return null;
     }
+
+
 
 
 
