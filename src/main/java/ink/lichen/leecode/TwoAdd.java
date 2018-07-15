@@ -1,9 +1,10 @@
 package ink.lichen.leecode;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by lichen@daojia.com on 2018-7-10.
@@ -65,7 +66,75 @@ public class TwoAdd {
 
 
 
+    public boolean isValidSudoku(char[][] board) {
 
+        Set<Character> cross = new HashSet<Character>();
+        Set<Character> vertical = new HashSet<Character>();
+
+        for (int i = 0 ; i < board.length; i ++){
+            for (int j = 0 ; j < board[i].length;j++){
+
+                if ( board[i][j]  >=1 && board[i][j]  <= 9 ){
+                    if (cross.contains(board[i][j]) )
+                        return false;
+                    else
+                        cross.add(board[i][j]);
+                }
+                if( board[j][i] != '.' ){
+                    if (vertical.contains(board[j][i]))
+                        return false;
+                    else {
+                        vertical.add(board[j][i]);
+                    }
+                }
+            }
+            cross.clear();
+            vertical.clear();
+
+        }
+
+        return true;
+    }
+
+    public String reverseString(String s) {
+        char[] chars = s.toCharArray();
+        for (int i = 0,j = chars.length-1 ; i < chars.length; i++,j--){
+            if (i >= j ){
+                break;
+            }
+            char tmp = chars[i];
+            chars[i] = chars[j];
+            chars[j] = tmp;
+        }
+        return new String(chars);
+    }
+
+
+    public int reverse(int x) {
+        return 0;
+    }
+
+
+    public static void main(String[] args) {
+        int x = -1;
+        String val = String.valueOf(x);
+        System.out.println(String.valueOf(Integer.MIN_VALUE));
+        System.out.println(String.valueOf(Integer.MAX_VALUE));
+        char[] chars = val.toCharArray();
+        for (int i = 0,j = chars.length-1 ; i < chars.length; i++,j--){
+            if (i >= j ){
+                break;
+            }
+            char tmp = chars[i];
+            chars[i] = chars[j];
+            chars[j] = tmp;
+        }
+
+        if ( chars[0] == '-' ) {
+//            if ()
+        }
+
+    }
 
 }
 
