@@ -102,10 +102,21 @@ public class Solution {
         }
         return val;
     }
+    public int hammingWeight(int n) {
+        String val = Integer.toBinaryString( n );
+        int count =0;
+        for (int i = 0; i < val.length(); i++){
+            if(val.charAt(i) == '1'){
+                count++;
+            }
+        }
+        return count;
+    }
 
 
     public static void main(String[] args) {
-        System.out.println(new Solution().romanToInt( "MCMXCIV" ));
+        System.out.println(Integer.toBinaryString( 0 ));
+        System.out.println(new Solution().hammingWeight( 0 ));
     }
 
 }
