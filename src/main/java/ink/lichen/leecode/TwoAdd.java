@@ -1,10 +1,6 @@
 package ink.lichen.leecode;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by lichen@daojia.com on 2018-7-10.
@@ -489,8 +485,7 @@ public class TwoAdd {
 
 
 
-
-    }
+}
 
 
 //class MinStack {
