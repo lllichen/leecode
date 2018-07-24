@@ -9,7 +9,6 @@
     <version>1.0-SNAPSHOT</version>
 
 
-<<<<<<< HEAD
     <build>
 
         <plugins>
@@ -27,8 +26,6 @@
         </plugins>
 
     </build>
-=======
 
->>>>>>> 72e9168250e0cfaa923842710c66d86d24e226bb
 
 </project>
