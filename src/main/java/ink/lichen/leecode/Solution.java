@@ -113,10 +113,45 @@ public class Solution {
         return count;
     }
 
+    public char ret(char d){
+        switch (d){
+            case ')':return '(';
+            case '}':return '{';
+            case ']':return '[';
+            default:return '1';
+        }
+    }
+
+
+
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (int i =0; i < s.length(); i++){
+            if (s.charAt( i ) == '(' || s.charAt( i) == '{' || s.charAt( i) == '[' )
+            {
+                stack.push( s.charAt( i ) );
+            }else {
+                if (stack.isEmpty()){
+                    return false;
+                }else {
+                    char newVal = stack.pop();
+                    if (newVal != ret( s.charAt( i ) ) )
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        if (!stack.isEmpty()){
+            return false;
+        }
+
+        return true;
+    }
+
 
     public static void main(String[] args) {
-        System.out.println(Integer.toBinaryString( 0 ));
-        System.out.println(new Solution().hammingWeight( 0 ));
+        System.out.println(new Solution().isValid( "()" ));
     }
 
 }
