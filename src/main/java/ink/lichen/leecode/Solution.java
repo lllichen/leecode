@@ -1,8 +1,5 @@
 package ink.lichen.leecode;
 
-import jdk.nashorn.internal.objects.NativeJSON;
-import jdk.nashorn.internal.parser.JSONParser;
-
 import java.util.*;
 
 /**
@@ -147,6 +144,28 @@ public class Solution {
         }
 
         return true;
+    }
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> res = new ArrayList();
+
+        Map<Integer,Integer> map = new HashMap();
+
+        for (int i = 0 ;i < nums.length; i++){
+            if (map.get(nums[i]) == null){
+                map.put(nums[i], 1);
+            }else{
+                map.put(nums[i],map.get(nums[i])+1);
+            }
+        }
+
+        return null;
+
+    }
+
+    public String addBinary(String a, String b) {
+        char[] as = a.toCharArray();
+        return null;
     }
 
 
