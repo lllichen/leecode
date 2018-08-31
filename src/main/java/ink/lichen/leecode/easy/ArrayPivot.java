@@ -1,4 +1,4 @@
-package ink.lichen.leecode;
+package ink.lichen.leecode.easy;
 
 /**
  * Created by lichen@daojia.com on 2018-8-30.

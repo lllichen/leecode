@@ -1,5 +1,7 @@
 package ink.lichen.leecode;
 
+import ink.lichen.leecode.support.ListNode;
+
 import java.util.*;
 
 /**
