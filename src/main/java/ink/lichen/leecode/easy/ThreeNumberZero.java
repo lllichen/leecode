@@ -18,45 +18,29 @@ public class ThreeNumberZero {
 
         Arrays.sort(nums);
 
-        Set<List<Integer>> set = new HashSet();
-
-        List<List<Integer>> res = new LinkedList();
-        if (nums.length <3){
-            return res;
-        }
-
-        for (int i = 0 ;i < nums.length; i++)
-        {
-            for (int j = i + 1; j < nums.length; j++) {
-
-                for (int z = j + 1 ; z < nums.length; z++){
-                    if(nums[i]+nums[j]+nums[z] == 0){
-                        List<Integer> list = new ArrayList();
-                        list.add(nums[i]);
-                        list.add(nums[j]);
-                        list.add(nums[z]);
-                        if (!set.contains(list)){
-                            res.add(list);
-                            set.add(list);
-                        }
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = 0; i < nums.length - 2; i++) {
+            for (int left = i + 1, right = nums.length - 1; left < right; ) {
+                int sum = nums[i] + nums[left] + nums[right];
+                if (sum > 0) {
+                    right--;
+                } else if (sum < 0) {
+                    left++;
+                } else {
+                    ans.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    while (left < --right && nums[right] == nums[right + 1]);
+                    while (++left < right && nums[left] == nums[left - 1]);
+                    while (i < nums.length - 2 && nums[i] == nums[i + 1]) {
+                        i++;
                     }
                 }
             }
         }
-        return res;
+
+        return ans;
     }
 
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
 
-        List<Integer> list2 = new ArrayList<>();
-        list2.add(3);
-        list2.add(1);
-        list2.add(2);
-        System.out.println(list.hashCode());
-        System.out.println(list2.hashCode());
     }
 }
