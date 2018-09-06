@@ -2,7 +2,10 @@ package ink.lichen.leecode;
 
 import ink.lichen.leecode.support.ListNode;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by lichen@daojia.com on 2018-7-10.
@@ -489,63 +492,3 @@ public class TwoAdd {
 
 }
 
-
-//class MinStack {
-//
-//    int min = 0;
-//
-//    int capacity;
-//
-//    List<Integer> list;
-//
-//    int val;
-//
-//
-//    /**
-//     * initialize your data structure here.
-//     */
-//    public MinStack() {
-//        list = new ArrayList<>( 100 );
-//        val = -1;
-//    }
-//
-//    public void push(int x) {
-//        if (val == -1) {
-//            min = x;
-//        }
-//
-//        if (x < min) {
-//            min = x;
-//        }
-//        if (val < capacity - 1) {
-//            list.set( ++val, x );
-//        } else {
-//            list.add( x );
-//            val++;
-//            capacity++;
-//        }
-//    }
-//
-//    public void pop() {
-//        Integer popVal = list.get( val );
-//        if (popVal == min) {
-//            min = list.get( 0 );
-//            for (int i = 0; i < val; i++) {
-//                if (list.get( i ) < min) {
-//                    min = list.get( i );
-//                }
-//            }
-//        }
-//        val--;
-//    }
-//
-//    public int top() {
-//        return list.get( val );
-//    }
-//
-//    public int getMin() {
-//        return min;
-//    }
-//
-//
-//}
