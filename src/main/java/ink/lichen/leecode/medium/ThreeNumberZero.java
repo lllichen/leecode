@@ -1,4 +1,4 @@
-package ink.lichen.leecode.easy;
+package ink.lichen.leecode.medium;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
