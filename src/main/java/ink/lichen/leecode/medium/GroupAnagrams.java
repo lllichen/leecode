@@ -12,7 +12,6 @@ import java.util.Set;
  */
 public class GroupAnagrams {
 
-
     public List<List<String>> groupAnagrams(String[] strs) {
 
         List<List<String>> res = new ArrayList<>();
@@ -23,24 +22,40 @@ public class GroupAnagrams {
         Map<Set<Character>,List<String>> map = new HashMap<>();
 
         for ( String str : strs){
+
+
             Set<Character> characters = new HashSet<>();
+
             for (Character character : str.toCharArray()){
                 characters.add(character);
             }
-
+            characters.add((char) str.length());
             if (map.get(characters) == null){
                 List<String> list = new ArrayList<String>();
                 list.add(str);
                 map.put(characters,list);
             }else {
                 List<String> list = map.get(characters);
-                if (!list.contains(str)){
-                    list.add(str);
-                }
+                list.add(str);
                 map.put(characters,list);
             }
         }
         res.addAll(map.values());
         return res;
     }
+
+    public static void main(String[] args) {
+        Set<Character> set = new HashSet<>();
+
+        set.add('a');
+        System.out.println(set.hashCode());
+        set.add('b');
+        System.out.println(set.hashCode());
+        set.add('a');
+        System.out.println(set.hashCode());
+        set.add('b');
+        System.out.println(set.hashCode());
+    }
+
+
 }
