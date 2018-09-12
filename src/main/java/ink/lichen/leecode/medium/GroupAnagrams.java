@@ -1,6 +1,8 @@
 package ink.lichen.leecode.medium;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -19,42 +21,26 @@ public class GroupAnagrams {
             return res;
         }
 
-        Map<Set<Character>,List<String>> map = new HashMap<>();
-
-        for ( String str : strs){
-
-
-            Set<Character> characters = new HashSet<>();
-
-            for (Character character : str.toCharArray()){
-                characters.add(character);
+        Map<char[],List<String>> map = new HashMap<>();
+        for (String str : strs){
+            char[] chars = str.toCharArray();
+            Arrays.sort(chars);
+            List<String> list = map.get(chars);
+            if (list == null){
+                map.put(chars,new ArrayList<>());
+                list = map.get(chars);
             }
-            characters.add((char) str.length());
-            if (map.get(characters) == null){
-                List<String> list = new ArrayList<String>();
-                list.add(str);
-                map.put(characters,list);
-            }else {
-                List<String> list = map.get(characters);
-                list.add(str);
-                map.put(characters,list);
-            }
+            list.add(str);
         }
         res.addAll(map.values());
         return res;
     }
 
     public static void main(String[] args) {
-        Set<Character> set = new HashSet<>();
-
-        set.add('a');
-        System.out.println(set.hashCode());
-        set.add('b');
-        System.out.println(set.hashCode());
-        set.add('a');
-        System.out.println(set.hashCode());
-        set.add('b');
-        System.out.println(set.hashCode());
+        Character a = 'a';
+        Character b = 'a';
+        Character c = 'a';
+        System.out.println(a.hashCode());
     }
 
 
