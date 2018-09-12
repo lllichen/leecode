@@ -21,14 +21,15 @@ public class GroupAnagrams {
             return res;
         }
 
-        Map<char[],List<String>> map = new HashMap<>();
+        Map<String,List<String>> map = new HashMap<>();
         for (String str : strs){
             char[] chars = str.toCharArray();
             Arrays.sort(chars);
-            List<String> list = map.get(chars);
+            String skey = new String(chars);
+            List<String> list = map.get(skey);
             if (list == null){
-                map.put(chars,new ArrayList<>());
-                list = map.get(chars);
+                map.put(skey,new ArrayList<>());
+                list = map.get(skey);
             }
             list.add(str);
         }
@@ -37,10 +38,18 @@ public class GroupAnagrams {
     }
 
     public static void main(String[] args) {
-        Character a = 'a';
-        Character b = 'a';
-        Character c = 'a';
-        System.out.println(a.hashCode());
+       String []str = new String[] {"eat","tea","tan","ate","nat","bat"};
+        GroupAnagrams ga = new GroupAnagrams();
+        List res = ga.groupAnagrams(str);
+//        char[] a = new char[] {'a','e','t'};
+//        char[] b = new char[] {'t','e','a'};
+//        System.out.println(a.hashCode());
+//        System.out.println(b.hashCode());
+//        Arrays.sort(a);
+//        Arrays.sort(b);
+//        System.out.println(a.hashCode());
+//        System.out.println(b.hashCode());
+
     }
 
 
