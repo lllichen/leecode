@@ -30,7 +30,6 @@ public class AddTwoNumbers {
             }else{
                 l2 = l2.next;
             }
-            System.out.println(val);
             if (val >= 10)
             {
                 tmp.next = new ListNode(val -10);
