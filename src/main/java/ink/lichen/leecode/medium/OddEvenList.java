@@ -19,20 +19,22 @@ public class OddEvenList {
         ListNode sentinel = head;
         ListNode dummy = head;
 
-        while (sentinel.next != null )
+        while (sentinel != null )
         {
+            System.out.println(i);
             if (i %2 == 1 && i > 1)
             {
                 ListNode next = sentinel.next;
 
                 ListNode temp = dummy.next;
+                temp.next =  next;
                 dummy.next = sentinel;
                 sentinel.next = temp;
+
                 dummy = dummy.next;
 
                 if (next != null){
                     sentinel = next;
-                    i++;
                 }else {
                     break;
                 }
