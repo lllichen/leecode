@@ -7,14 +7,17 @@ public class IncreasingTriplet {
 
     public boolean increasingTriplet(int[] nums) {
 
-        int z = 0;
-        int num = 0;
+        int m1 =Integer.MAX_VALUE;
+        int m2 = Integer.MAX_VALUE;
 
-        for (int i = 0; i < nums.length; i++)
+        for (int a : nums)
         {
-
+            if (m1 >= a){
+                m1 =a;
+            }
+            else if (m2 >= a) m2 = a;
+            else return true;
         }
-//        for (int i = )
         return false;
     }
 }
