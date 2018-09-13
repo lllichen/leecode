@@ -7,6 +7,14 @@ public class IncreasingTriplet {
 
     public boolean increasingTriplet(int[] nums) {
 
+        int z = 0;
+        int num = 0;
+
+        for (int i = 0; i < nums.length; i++)
+        {
+
+        }
+//        for (int i = )
         return false;
     }
 }
