@@ -12,31 +12,23 @@ import ink.lichen.leecode.support.ListNode;
  *  time o(n) space o(1)
  */
 public class OddEvenList {
-
     public ListNode oddEvenList(ListNode head) {
-        //oddEven
         int i = 1;
         ListNode sentinel = head;
         ListNode dummy = head;
-
         while (sentinel != null )
         {
-            System.out.println(i);
-            if (i %2 == 1 && i > 1)
+            if (i %2 == 0)
             {
+                if (sentinel.next == null){break;}
+
                 ListNode next = sentinel.next;
                 ListNode temp = dummy.next;
-                temp.next =  next;
-                dummy.next = sentinel;
-                sentinel.next = temp;
+                dummy.next = next;
+                sentinel.next = next.next;
+                next.next = temp;
 
                 dummy = dummy.next;
-
-                if (next != null){
-                    sentinel = next;
-                }else {
-                    break;
-                }
             }else {
                 sentinel= sentinel.next;
             }
