@@ -11,17 +11,10 @@ public class BuildTree {
 
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        Calendar c = Calendar.getInstance();
-        c.add(Calendar.HOUR, 24);
-        System.out.println(c.getTime());
-
-
         return null;
     }
 
     public static void main(String[] args) {
-        Calendar c = Calendar.getInstance();
-        c.add(Calendar.HOUR, 24);
-        System.out.println(c.getTime());
+
     }
 }
