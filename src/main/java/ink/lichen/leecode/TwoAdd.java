@@ -1,6 +1,7 @@
 package ink.lichen.leecode;
 
 import ink.lichen.leecode.support.ListNode;
+import ink.lichen.leecode.support.TreeNode;
 
 import java.util.HashMap;
 import java.util.HashSet;
