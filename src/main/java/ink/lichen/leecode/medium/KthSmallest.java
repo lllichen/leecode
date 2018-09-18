@@ -2,6 +2,8 @@ package ink.lichen.leecode.medium;
 
 import ink.lichen.leecode.support.TreeNode;
 
+import java.util.Stack;
+
 /**
  * Created by lichen@daojia.com on 2018-9-18.
  *
@@ -32,9 +34,25 @@ import ink.lichen.leecode.support.TreeNode;
 public class KthSmallest {
 
     public int kthSmallest(TreeNode root, int k) {
-        if (root.left != null){
-            root = root.left;
+        Stack<TreeNode> stack = new Stack<>();
+
+        int i = 0;
+
+        while (root != null || !stack.isEmpty())
+        {
+            while (root != null){
+                stack.push(root);
+                root = root.left;
+            }
+            if (!stack.isEmpty())
+            {
+                TreeNode node = stack.pop();
+                i++;
+                node = node.right;
+            }
         }
+
+
         return 0;
     }
 }
