@@ -48,11 +48,12 @@ public class KthSmallest {
             {
                 TreeNode node = stack.pop();
                 i++;
-                node = node.right;
+                if (i == k){
+                    return node.val;
+                }
+                root = node.right;
             }
         }
-
-
         return 0;
     }
 }
