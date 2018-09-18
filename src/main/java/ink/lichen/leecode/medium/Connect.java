@@ -1,7 +1,6 @@
 package ink.lichen.leecode.medium;
 
 import ink.lichen.leecode.support.TreeLinkNode;
-import ink.lichen.leecode.support.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -29,34 +28,43 @@ import java.util.Queue;
 public class Connect {
 
     public void connect(TreeLinkNode root) {
-        if (root == null){
-            return;
-        }
-        Queue<TreeLinkNode> queue = new ArrayDeque<>();
-        queue.add(root);
-        int size = queue.size();
-
-
-        while (queue.size() != 0){
-            System.out.println(queue.size());
-            TreeLinkNode pre = null;
-            for (int i = 0 ; i < size; i++)
-            {
-                TreeLinkNode node = queue.poll();
-                if (pre == null){
-                    pre = node;
-                }else {
-                    pre.next = node;
-                    pre = pre.next;
-                }
-
-                if (node.left != null)
-                    queue.add(node.left);
-                if (node.right != null)
-                    queue.add(node.right);
-            }
-            size = queue.size();
-        }
-
+//        if (root == null){
+//            return;
+//        }
+//        Queue<TreeLinkNode> queue = new ArrayDeque<>();
+//        queue.add(root);
+//        int size = queue.size();
+//
+//
+//        while (queue.size() != 0){
+//            System.out.println(queue.size());
+//            TreeLinkNode pre = null;
+//            for (int i = 0 ; i < size; i++)
+//            {
+//                TreeLinkNode node = queue.poll();
+//                if (pre == null){
+//                    pre = node;
+//                }else {
+//                    pre.next = node;
+//                    pre = pre.next;
+//                }
+//
+//                if (node.left != null)
+//                    queue.add(node.left);
+//                if (node.right != null)
+//                    queue.add(node.right);
+//            }
+//            size = queue.size();
+//        }
+       if (root == null || root.left == null || root.right == null)
+       {
+           return;
+       }
+       root.left.next = root.right;
+       if (root.next != null){
+           root.right.next = root.next.left;
+       }
+       connect(root.left);
+       connect(root.right);
     }
 }
