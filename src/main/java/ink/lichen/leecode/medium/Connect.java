@@ -1,6 +1,10 @@
 package ink.lichen.leecode.medium;
 
 import ink.lichen.leecode.support.TreeLinkNode;
+import ink.lichen.leecode.support.TreeNode;
+
+import java.util.ArrayDeque;
+import java.util.Queue;
 
 /**
  * Created by lichen@daojia.com on 2018-9-18.
@@ -25,6 +29,16 @@ import ink.lichen.leecode.support.TreeLinkNode;
 public class Connect {
 
     public void connect(TreeLinkNode root) {
+
+        Queue<TreeLinkNode> queue = new ArrayDeque<>();
+        queue.add(root);
+        int size = queue.size();
+
+        TreeLinkNode pre;
+        for (int i = 0 ; i < size; i++){
+            TreeLinkNode node = queue.poll();
+            node.next = null;
+        }
 
     }
 }
