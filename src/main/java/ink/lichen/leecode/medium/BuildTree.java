@@ -28,21 +28,32 @@ public class BuildTree {
 
     private TreeNode help(int preStart, int inStart, int inEnd, int[] preorder, int[] inorder ){
         int index = 0;
+        if ( preStart >= preorder.length || inStart >= inEnd )
+        {
+            return null;
+        }
         TreeNode root = new TreeNode(preorder[preStart]);
-//        if ( preStart > index || inStart > inEnd ){
-//            return null;
-//        }
-
-        for ( int i = inStart; i < inEnd; i++ ){
-            if (inorder[i] == root.val){
+        for ( int i = inStart; i < inEnd; i++ )
+        {
+            if (inorder[i] == root.val)
+            {
                 index = i;
                 break;
             }
         }
+
         root.left = help(preStart+1,inStart,index,preorder,inorder);
         root.right = help(preStart+index - inStart+1,index+1,inEnd,preorder,inorder);
         return root;
     }
 
 
+    public static void main(String[] args) {
+        BuildTree buildTree = new BuildTree();
+        int [] a = {3,9,20,15,7};
+        int [] b = {9,3,15,20,7};
+
+        TreeNode tree = buildTree.buildTree(a, b);
+        System.out.println("over");
+    }
 }
