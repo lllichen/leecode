@@ -21,17 +21,29 @@ public class BuildTree {
 
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        if (preorder.length == 0){
+
+        int preStart = 0;
+        int inStart = 0;
+        int inEnd = preorder.length;
+
+        return help(preStart,inStart,inEnd,preorder,inorder);
+    }
+
+    private TreeNode help(int preStart, int inStart, int inEnd, int[] preorder, int[] inorder ){
+        int index = 0;
+        TreeNode root = new TreeNode(preorder[preStart]);
+        if ( preStart > index || inStart > inEnd ){
             return null;
         }
-        for (int i = 0 ; i < preorder.length; i++){
-            TreeNode root = new TreeNode(preorder[i]);
-            for (int j = 0 ; j < inorder.length; j++){
 
+        for ( int i = inStart; i < inEnd; i++ ){
+            if (inorder[i] == root.val){
+                index = i;
             }
         }
-
-        return null;
+        root.left = help(preStart,index,inEnd,preorder,inorder);
+        root.right = help(preStart,index,inEnd,preorder,inorder);
+        return root;
     }
 
 
