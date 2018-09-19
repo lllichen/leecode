@@ -63,7 +63,8 @@ public class LetterCombinations {
                 list.add(str+c);
             }
         }else{
-            for(char c : codes[digits.charAt(deep-1) - '0' -2].toCharArray()){
+            int val =digits.charAt(deep-1) - '0' -2;
+            for(char c : codes[val].toCharArray()){
                 backtrace(digits, list, str+c, deep+1, n);
             }
         }
