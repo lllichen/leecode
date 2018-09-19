@@ -1,8 +1,11 @@
 package ink.lichen.leecode.medium;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by lichen@daojia.com on 2018-9-18.
@@ -10,25 +13,42 @@ import java.util.Map;
 public class LetterCombinations {
 
     public List<String> letterCombinations(String digits) {
-        Map<Character,String> map = new HashMap<>();
-        map.put('2',"abc");
-        map.put('3',"def");
-        map.put('4',"ghi");
-        map.put('5',"jkl");
-        map.put('6',"mno");
-        map.put('7',"pqrs");
-        map.put('8',"tuv");
-        map.put('9',"wxyz");
+        Map<Character, String> map = new HashMap<>();
+        map.put('2', "abc");
+        map.put('3', "def");
+        map.put('4', "ghi");
+        map.put('5', "jkl");
+        map.put('6', "mno");
+        map.put('7', "pqrs");
+        map.put('8', "tuv");
+        map.put('9', "wxyz");
 
-//       List
+        Set<String> result = new HashSet<>();
 
-        for (int i = 0; i < digits.length(); i++)
-        {
+        for (int i = 0; i < digits.length(); i++) {
             char c = digits.charAt(i);
             String val = map.get(c);
-
+            if (result.size() == 0) {
+                for (char t : val.toCharArray()) {
+                    result.add(t + "");
+                }
+            } else {
+                Set<String> temp = new HashSet<>();
+                for (String sval : result) {
+                    for(char z : val.toCharArray())
+                    {
+                        temp.add(sval+z);
+                    }
+                }
+                result = temp;
+            }
         }
 
-        return null;
+        return new ArrayList<>(result);
+    }
+
+    public static void main(String[] args) {
+        LetterCombinations letterCombinations = new LetterCombinations();
+        letterCombinations.letterCombinations("23");
     }
 }
