@@ -29,7 +29,7 @@ public class GenerateParenthesis {
 
     public static void main(String[] args) {
         GenerateParenthesis g = new GenerateParenthesis();
-        List<String> list = g.generateParenthesis(4);
+        List<String> list = g.generateParenthesis(2);
         System.out.println(list);
     }
 }
