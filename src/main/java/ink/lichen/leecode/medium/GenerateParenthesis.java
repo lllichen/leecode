@@ -1,5 +1,6 @@
 package ink.lichen.leecode.medium;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,33 +8,22 @@ import java.util.List;
  */
 public class GenerateParenthesis {
 
-
-    private String add1(String val){
-        return val+"()";
-    }
-
-    private String add2(String val){
-        return "()"+val;
-    }
-
-    private String add3(String val){
-        return "("+val+")";
-    }
-
-
-
     public List<String> generateParenthesis(int n) {
-
-        String start = "";
-
-        return null;
+        List<String> list = new ArrayList<String>();
+        backtrack(list, "", 0, 0, n);
+        return list;
     }
 
-    public void help(int i,int z, List<String> result, String val, int n){
-        if (i == n){
+    public void backtrack(List<String> list, String str, int open, int close, int max){
+
+        if(str.length() == max*2){
+            list.add(str);
             return;
-        }else {
-            add1(val);
         }
+
+        if(open < max)
+            backtrack(list, str+"(", open+1, close, max);
+        if(close < open)
+            backtrack(list, str+")", open, close+1, max);
     }
 }
