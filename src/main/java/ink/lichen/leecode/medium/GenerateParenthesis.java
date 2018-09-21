@@ -26,4 +26,10 @@ public class GenerateParenthesis {
         if(close < open)
             backtrack(list, str+")", open, close+1, max);
     }
+
+    public static void main(String[] args) {
+        GenerateParenthesis g = new GenerateParenthesis();
+        List<String> list = g.generateParenthesis(4);
+        System.out.println(list);
+    }
 }
