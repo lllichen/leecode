@@ -30,11 +30,13 @@ public class Permute {
 
     public void help(List<List<Integer>> list , List<Integer> numList,int[] nums)
     {
-        if (numList.size() == nums.length){
+        if (numList.size() == nums.length)
+        {
             list.add(numList);
         }
 
-        for (int val : nums){
+        for (int val : nums)
+        {
             numList.add(val);
         }
     }
