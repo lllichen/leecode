@@ -21,15 +21,22 @@ import java.util.List;
 public class Permute {
 
     public List<List<Integer>> permute(int[] nums) {
-        List list = new ArrayList();
-        for (int val : nums){
-            list.add(val);
-        }
+        List<List<Integer>> list = new ArrayList();
+
+        help(list,new ArrayList<>(),nums);
+
         return list;
     }
 
-    public void help(){
+    public void help(List<List<Integer>> list , List<Integer> numList,int[] nums)
+    {
+        if (numList.size() == nums.length){
+            list.add(numList);
+        }
 
+        for (int val : nums){
+            numList.add(val);
+        }
     }
 
 }
