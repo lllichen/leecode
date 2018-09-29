@@ -24,7 +24,7 @@ public class Permute {
 
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
-
+        System.out.println(list);
 
         for (int i =0 ; i < nums.length; i++){
 
