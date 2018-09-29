@@ -22,10 +22,8 @@ import java.util.List;
 public class Permute {
 
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> list = new ArrayList();
 
-        help(list,new ArrayList<>(),nums);
-
+        List list = subsets(nums);
         return list;
     }
 
@@ -60,6 +58,12 @@ public class Permute {
             backtrack(list, tempList, nums, i + 1);
             tempList.remove(tempList.size() - 1);
         }
+    }
+
+    public static void main(String[] args) {
+        int [] a = new int[]{1,2,3};
+        Permute permute = new Permute();
+        System.out.println(permute.subsets(a));
     }
 
 }
