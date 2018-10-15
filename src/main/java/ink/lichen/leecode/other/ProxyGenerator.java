@@ -1,4 +1,4 @@
-package ink.lichen.leecode;
+package ink.lichen.leecode.other;
 
 /*
  * Copyright (c) 1999, 2008, Oracle and/or its affiliates. All rights reserved.

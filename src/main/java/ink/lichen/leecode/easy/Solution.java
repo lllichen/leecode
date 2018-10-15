@@ -1,4 +1,4 @@
-package ink.lichen.leecode;
+package ink.lichen.leecode.easy;
 
 import java.util.*;
 

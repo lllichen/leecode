@@ -1,4 +1,4 @@
-package ink.lichen.leecode;
+package ink.lichen.leecode.easy;
 
 import ink.lichen.leecode.support.ListNode;
 import ink.lichen.leecode.support.TreeNode;
