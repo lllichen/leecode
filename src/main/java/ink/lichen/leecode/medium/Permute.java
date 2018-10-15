@@ -1,6 +1,7 @@
 package ink.lichen.leecode.medium;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,56 +21,41 @@ import java.util.List;
  */
 public class Permute {
 
+    List<List<Integer>> res;
+    boolean[] used;
+
     public List<List<Integer>> permute(int[] nums) {
-
-        List<List<Integer>> res = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
-        System.out.println(list);
-
-        for (int i =0 ; i < nums.length; i++){
-
-        }
-
+        res = new LinkedList<List<Integer>>();
+        used = new boolean[nums.length];
+        List<Integer> tmp = new LinkedList<Integer>();
+        helper(nums, tmp);
         return res;
     }
 
-    public void help(List<List<Integer>> list , List<Integer> numList,int[] nums)
-    {
-        if (numList.size() == nums.length)
-        {
-            list.add(numList);
-        }
-
-        for (int val : nums)
-        {
-            List newList = new ArrayList();
-            newList.addAll(numList);
-            newList.add(val);
-
-            help(list,newList,nums);
+    private void helper(int[] nums, List<Integer> tmp){
+        if(tmp.size() == nums.length){
+            List<Integer> list = new LinkedList<Integer>(tmp);
+            res.add(list);
+        } else {
+            for(int idx = 0; idx < nums.length; idx++){
+                // 遇到已经加过的元素就跳过
+                if(used[idx]){
+                    continue;
+                }
+                // 加入该元素后继续搜索
+                used[idx] = true;
+                tmp.add(nums[idx]);
+                helper(nums, tmp);
+                tmp.remove(tmp.size()-1);
+                used[idx] = false;
+            }
         }
     }
-//
-//    public List<List<Integer>> subsets(int[] nums) {
-//        List<List<Integer>> list = new ArrayList<>();
-//        Arrays.sort(nums);
-//        backtrack(list, new ArrayList<>(), nums, 0);
-//        return list;
-//    }
-
-//    private void backtrack(List<List<Integer>> list , List<Integer> tempList, int [] nums, int start){
-//        list.add(new ArrayList<>(tempList));
-//        for(int i = start; i < nums.length; i++){
-//            tempList.add(nums[i]);
-//            backtrack(list, tempList, nums, i + 1);
-//            tempList.remove(tempList.size() - 1);
-//        }
-//    }
 
     public static void main(String[] args) {
-        int [] a = new int[]{1,2,3};
+        int [] val = new int[]{1,2,3};
         Permute permute = new Permute();
-//        permute.help();
+        permute.permute(val);
     }
 
 }
