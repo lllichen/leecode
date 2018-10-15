@@ -1,11 +1,11 @@
-package ink.lichen.leecode.threenumber;
+package ink.lichen.leecode.easy;
 
 import java.util.*;
 
 /**
  * Created by lichen@daojia.com on 2018-7-25.
  */
-public class Solution {
+public class ThreeNumber {
 
 
     //set
