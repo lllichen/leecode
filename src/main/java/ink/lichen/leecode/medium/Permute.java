@@ -21,33 +21,54 @@ import java.util.List;
  */
 public class Permute {
 
-    List<List<Integer>> res;
-    boolean[] used;
+//    List<List<Integer>> res;
+//    boolean[] used;
+//
+//    public List<List<Integer>> permute(int[] nums) {
+//        res = new LinkedList<List<Integer>>();
+//        used = new boolean[nums.length];
+//        List<Integer> tmp = new LinkedList<Integer>();
+//        helper(nums, tmp);
+//        return res;
+//    }
+//
+//    private void helper(int[] nums, List<Integer> tmp){
+//        if(tmp.size() == nums.length){
+//            List<Integer> list = new LinkedList<Integer>(tmp);
+//            res.add(list);
+//        } else {
+//            for(int idx = 0; idx < nums.length; idx++){
+//                // 遇到已经加过的元素就跳过
+//                if(used[idx]){
+//                    continue;
+//                }
+//                // 加入该元素后继续搜索
+//                used[idx] = true;
+//                tmp.add(nums[idx]);
+//                helper(nums, tmp);
+//                tmp.remove(tmp.size()-1);
+//                used[idx] = false;
+//            }
+//        }
+//    }
+
 
     public List<List<Integer>> permute(int[] nums) {
-        res = new LinkedList<List<Integer>>();
-        used = new boolean[nums.length];
-        List<Integer> tmp = new LinkedList<Integer>();
-        helper(nums, tmp);
-        return res;
+        List<List<Integer>> list = new ArrayList<>();
+        // Arrays.sort(nums); // not necessary
+        backtrack(list, new ArrayList<>(), nums);
+        return list;
     }
 
-    private void helper(int[] nums, List<Integer> tmp){
-        if(tmp.size() == nums.length){
-            List<Integer> list = new LinkedList<Integer>(tmp);
-            res.add(list);
-        } else {
-            for(int idx = 0; idx < nums.length; idx++){
-                // 遇到已经加过的元素就跳过
-                if(used[idx]){
-                    continue;
-                }
-                // 加入该元素后继续搜索
-                used[idx] = true;
-                tmp.add(nums[idx]);
-                helper(nums, tmp);
-                tmp.remove(tmp.size()-1);
-                used[idx] = false;
+    private void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] nums){
+        if(tempList.size() == nums.length){
+            list.add(new ArrayList<>(tempList));
+        } else{
+            for(int i = 0; i < nums.length; i++){
+                if(tempList.contains(nums[i])) continue; // element already exists, skip
+                tempList.add(nums[i]);
+                backtrack(list, tempList, nums);
+                tempList.remove(tempList.size() - 1);
             }
         }
     }
