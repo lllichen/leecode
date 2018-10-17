@@ -74,9 +74,9 @@ public class Permute {
     }
 
     public static void main(String[] args) {
-        int [] val = new int[]{1,2,3};
+        int [] val = new int[]{1,2,3,4};
         Permute permute = new Permute();
-        permute.permute(val);
+        System.out.println(permute.permute(val));
     }
 
 }
