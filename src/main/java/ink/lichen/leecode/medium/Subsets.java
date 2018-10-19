@@ -1,5 +1,6 @@
 package ink.lichen.leecode.medium;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,8 +25,14 @@ public class Subsets {
 
     public List<List<Integer>> subsets(int[] nums) {
 
-        return null;
+        List<List<Integer>> result = new ArrayList<>();
+        this.backtrack(result,new ArrayList<>(),nums);
+
+        return result;
     }
 
+    public void backtrack(List<List<Integer>> result,List<Integer> temp,int[] nums){
+
+    }
 
 }
