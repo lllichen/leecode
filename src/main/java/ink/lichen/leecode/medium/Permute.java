@@ -65,7 +65,8 @@ public class Permute {
             list.add(new ArrayList<>(tempList));
         } else{
             for(int i = 0; i < nums.length; i++){
-                if(tempList.contains(nums[i])) continue; // element already exists, skip
+                if(tempList.contains(nums[i]))
+                    continue; // element already exists, skip
                 tempList.add(nums[i]);
                 backtrack(list, tempList, nums);
                 tempList.remove(tempList.size() - 1);
@@ -74,7 +75,7 @@ public class Permute {
     }
 
     public static void main(String[] args) {
-        int [] val = new int[]{1,2,3,4};
+        int [] val = new int[]{1,2,3};
         Permute permute = new Permute();
         System.out.println(permute.permute(val));
     }
