@@ -35,33 +35,24 @@ public class SortColors {
 
 
     public void sortColors(int[] nums) {
-
-        int j;
-        int mark = 1;
-        int flag = 0;
-        for (int i = 0 ; i < nums.length ; i++){
-            if (nums[i] != flag){
-                j = mark;
-                while ( j< nums.length && nums[j] != flag  ){
-                    j++;
-                }
-                if (j< nums.length && nums[j] == flag){
-                    int temp = nums[i];
-                    nums[i] = nums[j];
-                    nums[j] = temp;
-                    mark = j+1;
-                }
-
-                if (j == nums.length-1){
-                    flag  =+ 1;
-                    mark = i+1;
-                }
+        int red = 0;
+        int blue  = nums.length-1;
+        for (int i = 0; i <= blue ; i++){
+            if (nums[i] == 0){
+                int temp = nums[i];
+                nums[i] = nums[red];
+                nums[red++] = temp;
+            }else if (nums[i] == 2){
+                int temp = nums[i];
+                nums[i--] = nums[blue];
+                nums[blue--] = temp;
             }
         }
+
     }
 
     public static void main(String[] args) {
         SortColors sortColors = new SortColors();
-        sortColors.sortColors(new int[]{2,0,2,1,1,0});
+        sortColors.sortColors(new int[]{2,0,1});
     }
 }
