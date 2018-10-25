@@ -20,17 +20,29 @@ package ink.lichen.leecode.medium;
  * 输出: 1 或 5
  * 解释: 你的函数可以返回索引 1，其峰值元素为 2
  * 或者返回索引 5， 其峰值元素为 6
+ * 分治算法
  *
  */
 public class FindPeakElement {
 
 
     public int findPeakElement(int[] nums) {
-        int begin ,end = 0;
-        for (int i = 0 ; i < nums.length ; i++){
 
-            if (nums[i] > nums[i-1] && nums[i] > nums[i+1]){
-                return i;
+        if (nums.length == 1){
+            return 0;
+        }
+        for (int i = 0 ; i < nums.length ; i++){
+            if (i == 0){
+                if (nums[i] > nums[i+1])
+                    return i;
+            }else if (i == nums.length-1){
+                if (nums[i]> nums[i-1]){
+                    return i;
+                }
+            }else {
+                if (nums[i] > nums[i-1] && nums[i] > nums[i+1]){
+                    return i;
+                }
             }
         }
         return 0;
