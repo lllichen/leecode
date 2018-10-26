@@ -14,12 +14,6 @@ public class Search {
             int mid = lo + high;
         }
 
-
-
-
-
         return 0;
     }
-
-
 }

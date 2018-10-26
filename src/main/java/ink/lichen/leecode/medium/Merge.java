@@ -8,6 +8,10 @@ import java.util.List;
 
 /**
  * Created by lichen@daojia.com on 2018-10-25.
+ *
+ * 输入: [[1,3],[2,6],[8,10],[15,18]]
+ * 输出: [[1,6],[8,10],[15,18]]
+ * 解释: 区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6]
  */
 public class Merge {
 
