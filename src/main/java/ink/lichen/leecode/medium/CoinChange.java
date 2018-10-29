@@ -1,8 +1,6 @@
 package ink.lichen.leecode.medium;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by lichen@daojia.com on 2018-10-29.
