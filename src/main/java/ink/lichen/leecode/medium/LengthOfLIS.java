@@ -1,5 +1,7 @@
 package ink.lichen.leecode.medium;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -9,16 +11,25 @@ import java.util.concurrent.ConcurrentHashMap;
 public class LengthOfLIS {
 
     public int lengthOfLIS(int[] nums) {
+        if (nums.length == 0){
+            return 0;
+        }
+        int[] dp  = new int[nums.length];
+        Arrays.fill(dp,1);
+        int res = 0;
+        for ( int i = 0; i < nums.length; i++){
+            for (int j = 0 ; j < i; j++){
+                if (nums[i] > nums[j]){
+                    dp[i] = Math.max(dp[i],dp[j]+1);
+                }
+            }
+            res = Math.max(res,dp[i]);
+        }
 
-        return 0;
+        return res;
     }
 
     public static void main(String[] args) {
-        ConcurrentHashMap<Integer,Integer> map = new ConcurrentHashMap();
-        Collection collection = map.values();
-        map.put(1,1);
-        System.out.println(collection.size());
-        map.put(2,3);
-        System.out.println(collection.size());
+
     }
 }
