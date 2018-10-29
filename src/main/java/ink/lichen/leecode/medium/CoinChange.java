@@ -8,6 +8,10 @@ package ink.lichen.leecode.medium;
  */
 public class CoinChange {
 
+//    F(amount) = MinCoins
+//    amount-coins[i] = MinCoins-1
+//    dp[i] = min(dp[i], dp[i - coins[j]] + 1);
+//
 
     public int coinChange(int[] coins, int amount) {
         int[] dp = new int[amount + 1];
