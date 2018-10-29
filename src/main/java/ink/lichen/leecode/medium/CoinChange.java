@@ -15,10 +15,20 @@ public class CoinChange {
 
     public int coinChange(int[] coins, int amount) {
         int[] dp = new int[amount + 1];
-        for (int i = 1; i <= amount; i++) dp[i] = 0x7fff_fffe;
+        for (int i = 1; i <= amount; i++)
+            dp[i] = 0x7fff_fffe;
         for (int coin : coins)
-            for (int i = coin; i <= amount; i++)
-                dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+            for (int i = coin; i <= amount; i++) {
+                int val = dp[i];
+                int val_coin = dp[i - coin] + 1;
+                dp[i] = Math.min(val, val_coin);
+            }
+
         return dp[amount] == 0x7fff_fffe ? -1 : dp[amount];
+    }
+
+    public static void main(String[] args) {
+        CoinChange coinChange = new CoinChange();
+        coinChange.coinChange(new int[]{5, 3, 1}, 11);
     }
 }
