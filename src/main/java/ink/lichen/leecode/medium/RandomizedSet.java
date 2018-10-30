@@ -1,6 +1,7 @@
 package ink.lichen.leecode.medium;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class RandomizedSet {
@@ -23,7 +24,10 @@ public class RandomizedSet {
 
     /** Get a random element from the set. */
     public int getRandom() {
-//        return set.toArray(Integer[])[0];
-        return 0;
+        if (set.size() > 0){
+            Integer[] obj =set.toArray(new Integer[set.size()]);
+            return obj[(int)(Math.random()*obj.length)];
+        }
+        return -1;
     }
 }
