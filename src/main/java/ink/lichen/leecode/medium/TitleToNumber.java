@@ -9,9 +9,20 @@ package ink.lichen.leecode.medium;
 public class TitleToNumber {
 
     public int titleToNumber(String s) {
-        for (int i = 0 ; i < s.charAt(i); i++ ){
-
+        //s中字符个数
+        int len=s.length();
+        //保存最终结果
+        int result=0;
+        //从个位数开始累加计算
+        for(int i=len-1;i>=0;i--){
+            //Math.pow(a,b)是计算a的b次幂，这里底数是26
+            result+=(s.charAt(i)-'A'+1)*Math.pow(26,len-1-i);
         }
-        return 0;
+        return result;
+    }
+
+    public static void main(String[] args) {
+        TitleToNumber titleToNumber = new TitleToNumber();
+        titleToNumber.titleToNumber("A");
     }
 }
