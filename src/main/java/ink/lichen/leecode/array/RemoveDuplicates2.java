@@ -15,9 +15,11 @@ public class RemoveDuplicates2 {
         }
         int i = 0;
 
-        for (int j = 2 ; j < n; j++ )
+        for (int j = 1 ; j < n; j++ )
         {
-            if (nums[j] != nums[i]&& nums[j-1] == nums[i]){
+            if (nums[j] != nums[i]&& j == i+1){
+                i++;
+            }else if (nums[j] == nums[i] && j == i+1){
 
             }
             i++;
