@@ -1,5 +1,7 @@
 package ink.lichen.leecode.medium;
 
+import java.util.Arrays;
+
 /**
  * Created by lichen@daojia.com on 2018-11-1.
  * 给定一个用字符数组表示的 CPU 需要执行的任务列表。其中包含使用大写的 A - Z 字母表示的26 种不同种类的任务。
@@ -17,7 +19,14 @@ package ink.lichen.leecode.medium;
 public class LeastInterval {
 
     public int leastInterval(char[] tasks, int n) {
+        int[] c = new int[26];
+        for(char t : tasks){
+            c[t - 'A']++;
+        }
+        Arrays.sort(c);
+        int i = 25;
+        while(i >= 0 && c[i] == c[25]) i--;
 
-        return 0;
+        return Math.max(tasks.length, (c[25] - 1) * (n + 1) + 25 - i);
     }
 }
