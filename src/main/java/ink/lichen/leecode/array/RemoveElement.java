@@ -8,17 +8,16 @@ public class RemoveElement {
 
     public int removeElement(int[] nums, int val) {
 
-        int j = 0,n = nums.length;
+        int j = -1,n = nums.length;
 
-        for (int i = 0 ; i < n; i++,j++)
+        for (int i = 0 ; i < n; i++)
         {
-            if (nums[i] == val){
-                while (++i<n&& nums[i] != val){
-                    nums[j] = nums[i];
-                }
+            if (nums[i] != val){
+                nums[++j] = nums[i];
             }
+
         }
-        return 0;
+        return j+1;
     }
 
     public static void main(String[] args) {
