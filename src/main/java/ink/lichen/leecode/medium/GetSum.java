@@ -7,7 +7,11 @@ package ink.lichen.leecode.medium;
  */
 public class GetSum {
     public int getSum(int a, int b) {
+        return b == 0 ? a : getSum(a ^ b, (a & b) << 1);
+    }
 
-        return 0;
+    public static void main(String[] args) {
+        GetSum getSum = new GetSum();
+        System.out.println(getSum.getSum(1,2));
     }
 }
