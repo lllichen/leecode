@@ -15,12 +15,12 @@ public class RemoveDuplicates2 {
         }
         int i = 0;
 
+        int val = 0;
         for (int j = 1 ; j < n; j++ )
         {
-            if (nums[j] != nums[i]&& j == i+1){
-                i++;
-            }else if (nums[j] == nums[i] && j == i+1){
 
+            if (nums[j] != nums[i]&& j == i+1) {
+                nums[i + 1] = nums[j];
             }
             i++;
         }
