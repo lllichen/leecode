@@ -9,8 +9,9 @@ public class SortColors {
 
     public void sortColors(int[] nums) {
 
-        int red = 0,n = nums.length;
+        int red = 0, n = nums.length;
         int blue = n-1;
+
         for (int i = 0 ; i < blue; i++)
         {
             if (nums[i] == 0){
