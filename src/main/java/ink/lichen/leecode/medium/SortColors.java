@@ -16,23 +16,6 @@ import java.util.Map;
  */
 public class SortColors {
 
-//    public void sortColors(int[] nums) {
-//        int[] flag = new int[3];
-//        for (int i = 0; i < nums.length; i++) {
-//            flag[nums[i]]++;
-//        }
-//
-//        for (int i = 0; i < nums.length; i++) {
-//            if (i < flag[0]){
-//                nums[i] = 0;
-//            }else if (i < flag[0]+flag[1]){
-//                nums[i] = 1;
-//            }else{
-//                nums[i] = 2;
-//            }
-//        }
-//    }
-
 
     public void sortColors(int[] nums) {
         int red = 0;
