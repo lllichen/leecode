@@ -34,8 +34,4 @@ public class SortColors {
 
     }
 
-    public static void main(String[] args) {
-        SortColors sortColors = new SortColors();
-        sortColors.sortColors(new int[]{2,0,1});
-    }
 }
