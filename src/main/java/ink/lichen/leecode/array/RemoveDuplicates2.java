@@ -5,8 +5,6 @@ package ink.lichen.leecode.array;
  */
 public class RemoveDuplicates2 {
 
-
-
     public int removeDuplicates(int[] nums) {
         int n = 0;
         for (int val : nums){
