@@ -25,13 +25,13 @@ public class FindKthLargest {
     private int median3(int[] nums,int left,int right){
         int center = (left + right)/2;
         if (nums[center] < nums[left]){
-
+            swap(nums,center,left);
         }
         if (nums[right] < nums[left]){
-
+            swap(nums,right,left);
         }
         if (nums[right] < nums[center]){
-
+            swap(nums,right,center);
         }
     }
 
