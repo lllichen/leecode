@@ -21,7 +21,6 @@ public class FindKthLargest {
 //        return nums[n-k];
 //    }
 
-
     private static  final int CUTOFF = 10;
 
     public int findKthLargest(int[] nums, int k) {
@@ -38,7 +37,7 @@ public class FindKthLargest {
             int pivot = median3(nums,left,right);
             int i = left,j = right-1;
             for (;;){
-                while (nums[++i] < pivot){}
+                while (nums[++i] > pivot){}
                 while (nums[--j] < pivot){}
                 if (i<j)
                     swap(nums,i,j);
@@ -60,7 +59,7 @@ public class FindKthLargest {
         int j;
         for (int i = left+1; i <=right; i++ ){
             int temp = nums[i];
-            for (j = i;j>0 && temp<nums[j-1];j--){
+            for (j = i;j>0 && temp>nums[j-1];j--){
                 nums[j] = nums[j-1];
             }
             nums[j] = temp;
@@ -70,29 +69,29 @@ public class FindKthLargest {
 
     private int median3(int[] nums,int left,int right){
         int center = (left + right)/2;
-        if (nums[center] < nums[left]){
+        if (nums[center] > nums[left]){
             swap(nums,center,left);
         }
-        if (nums[right] < nums[left]){
+        if (nums[right] > nums[left]){
             swap(nums,right,left);
         }
-        if (nums[right] < nums[center]){
+        if (nums[right] > nums[center]){
             swap(nums,right,center);
         }
         swap(nums,center,right-1);
         return nums[right-1];
     }
 
-    private void swap(int[] nums,int a,int b){
+    private final void swap(int[] nums,int a,int b){
         int temp = nums[a];
         nums[a] = nums[b];
         nums[b] = temp;
     }
 
     public static void main(String[] args) {
-        int[] val = new int []{3,2,1,5,6,4};
+        int[] val = new int []{3,2,1,5,6,4,9,10,20,18,17,15,13};
         FindKthLargest findKthLargest = new FindKthLargest();
-        findKthLargest.findKthLargest(val,2);
+        System.out.println(findKthLargest.findKthLargest(val,2));
     }
 
 
