@@ -2,10 +2,13 @@ package ink.lichen.leecode.tx;
 
 /**
  * Created by lichen@daojia.com on 2018-11-12.
+ *
+ *  if (aMid < bMid) Keep [aRight + bLeft]
+ *  else Keep [bRight + aLeft]
  */
 public class FindMedianSortedArrays {
 
-    //
+
     public double findMedianSortedArrays(int[] A, int[] B) {
         int m = A.length, n = B.length;
         int l = (m + n + 1) / 2;
