@@ -1456,7 +1456,7 @@ public class ProxyGenerator {
              */
             return type.getName().replace('.', '/');
         } else {
-            return "L" + dotToSlash(type.getName()) + ";";
+            return "ReverseList" + dotToSlash(type.getName()) + ";";
         }
     }
 
@@ -1651,7 +1651,7 @@ public class ProxyGenerator {
                             .getClass().getName().substring(1);
             wrapperClassName = dotToSlash(wrapperClass.getName());
             wrapperValueOfDesc =
-                    "(" + baseTypeString + ")L" + wrapperClassName + ";";
+                    "(" + baseTypeString + ")ReverseList" + wrapperClassName + ";";
             unwrapMethodName = primitiveClass.getName() + "Value";
             unwrapMethodDesc = "()" + baseTypeString;
         }
