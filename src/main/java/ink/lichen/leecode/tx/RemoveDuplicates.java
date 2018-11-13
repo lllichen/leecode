@@ -8,14 +8,12 @@ public class RemoveDuplicates {
 
     public static int removeDuplicates(int[] nums) {
         int j = 0, n = nums.length;
-        for( int i = 1;i < n;i++){
+        for( int i = 0; i < n ; i++){
             if(nums[j] != nums[i]){
-                if (j+1 != i)
+                j++;
+                if ( j != i )
                 {
-                    nums[++j] = nums[i];
-                }else
-                {
-                    j++;
+                    nums[j] = nums[i];
                 }
             }
         }
