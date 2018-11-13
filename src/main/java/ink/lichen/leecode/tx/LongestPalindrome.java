@@ -5,29 +5,30 @@ package ink.lichen.leecode.tx;
  */
 public class LongestPalindrome {
 
+    private String res = "";
+
     public String longestPalindrome(String s) {
-        char[] ca = s.toCharArray();
-        int rs = 0, re = 0;
-        int max = 0;
-        for(int i = 0; i < ca.length; i++) {
-            if(isPalindrome(ca, i - max - 1, i)) {
-                rs = i - max - 1; re = i;
-                max += 2;
-            } else if(isPalindrome(ca, i - max, i)) {
-                rs = i - max; re = i;
-                max += 1;
-            }
-        }
-        return s.substring(rs, re + 1);
+       if (s == null || s.length() == 0){
+           return s;
+       }
+       for (int i = 0 ; i < s.length(); i++){
+           help(s,i,i);
+           help(s,i,i+1);
+       }
+       return res;
     }
 
-    private boolean isPalindrome(char[] ca, int s, int e) {
-        if(s < 0) return false;
-
-        while(s < e) {
-            if(ca[s++] != ca[e--]) return false;
+    private void help(String s,int left, int right){
+        while (left >=0 && right < s.length() && s.charAt(left) == s.charAt(right)){
+            left--;
+            right++;
         }
-        return true;
+        String cur = s.substring(left+1,right);
+        if (cur.length()> res.length()){
+            res = cur;
+        }
     }
+
+
 
 }
