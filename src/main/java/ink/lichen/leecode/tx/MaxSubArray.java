@@ -9,27 +9,24 @@ package ink.lichen.leecode.tx;
 public class MaxSubArray {
 
     public int maxSubArray(int[] nums) {
-
-
-        if (nums.length == 1)
+        if (nums.length == 0){
+            return 0;
+        }
+        if (nums.length == 1){
             return nums[0];
+        }
+        int max = nums[0];
+        int cur = nums[0];
+        for (int i = 0 ; i < nums.length; i++) {
+            cur +=nums[i];
 
-        int max = Integer.MIN_VALUE;
-        int cur = 0;
+            if (cur<0){
 
-        for (int i=0; i < nums.length; i++){
-            cur +=  nums[i];
-            if (cur < 0){
-                if( cur > max){
-                    max = cur;
-                }
-                cur = 0;
-            }else{
-                if ( cur > max ){
-                    max = cur;
-                }
             }
         }
-        return max;
+
+
+
+
     }
 }
