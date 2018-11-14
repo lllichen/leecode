@@ -45,6 +45,10 @@ public class LRUCache {
         node.next.pre = node;
         node.pre = head;
         head.next = node;
+
+//      val.next = head.next;
+//      head.next = head.next.pre = val;
+//      val.pre = head;
     }
 
 
@@ -56,9 +60,6 @@ public class LRUCache {
 
             addToHead(val);
 
-//            val.next = head.next;
-//            head.next = head.next.pre = val;
-//            val.pre = head;
         }
         return val.value;
     }
