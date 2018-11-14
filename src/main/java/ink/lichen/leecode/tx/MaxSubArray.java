@@ -7,7 +7,7 @@ package ink.lichen.leecode.tx;
  * 解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
  */
 public class MaxSubArray {
-
+//[1,2]
     public int maxSubArray(int[] nums) {
         if (nums.length == 0){
             return 0;
@@ -16,17 +16,22 @@ public class MaxSubArray {
             return nums[0];
         }
         int max = nums[0];
-        int cur = nums[0];
+        int cur = 0;
         for (int i = 0 ; i < nums.length; i++) {
             cur +=nums[i];
-
-            if (cur<0){
-
+            if (max < cur){
+                max = cur;
             }
+            if (cur<0){
+                cur = 0;
+            }
+
         }
+        return max;
+    }
 
-
-
-
+    public static void main(String[] args) {
+        MaxSubArray maxSubArray = new MaxSubArray();
+        System.out.println(maxSubArray.maxSubArray(new int[]{-2,1,-3,4,-1,2,1,-5,4}));
     }
 }
