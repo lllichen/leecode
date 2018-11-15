@@ -60,8 +60,9 @@ public class UniquePaths {
 
 
     public static void main(String[] args) {
-        UniquePaths uniquePaths = new UniquePaths();
 
+        UniquePaths uniquePaths = new UniquePaths();
         System.out.println(uniquePaths.uniquePaths(3,2));
+
     }
 }
