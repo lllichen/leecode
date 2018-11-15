@@ -26,7 +26,7 @@ public class UniquePaths {
     }
 
     public int dsf(int x, int y){
-        if (x >m -1 || y > n -1)
+        if (x > m -1 || y > n -1)
         {
             return 0;
         }
