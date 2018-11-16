@@ -28,20 +28,27 @@ public class Permute {
 
         List<List<Integer>> res = new ArrayList<>();
 
-        backtrack(res,new ArrayList<>(),nums,0);
+        backtrack(res,new ArrayList<>(),nums);
         return res;
     }
 
-    public void backtrack(List<List<Integer>> res, List<Integer> temp, int[] nums ,int start){
+    private boolean[] flags = new boolean[3];
+
+    public void backtrack(List<List<Integer>> res, List<Integer> temp, int[] nums){
         if (temp.size() == nums.length){
             res.add(new ArrayList<>(temp));
             return;
         }
         //start
-        for (int i = start; i < nums.length; i++)
+        for (int i = 0; i < nums.length; i++)
         {
+            if (flags[i]){
+                continue;
+            }
             temp.add(nums[i]);
-            backtrack(res,temp, nums, i+1);
+            flags[i] = true;
+            backtrack(res,temp, nums);
+            flags[i] = false;
             temp.remove(temp.size()-1);
         }
     }
