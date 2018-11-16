@@ -17,6 +17,14 @@ import java.util.List;
  * 01 - 1
  * 11 - 3
  * 10 - 2
+ * 对于给定的 n，其格雷编码序列并不唯一。
+ * 例如，[0,2,3,1] 也是一个有效的格雷编码序列。
+ *
+ * 00 - 0
+ * 10 - 2
+ * 11 - 3
+ * 01 - 1
+ *
  *
  */
 public class GrayCode {
@@ -28,6 +36,11 @@ public class GrayCode {
      */
     public List<Integer> grayCode(int n) {
         List<Integer> res = new ArrayList<>();
+        backtrack(res,n);
         return res;
+    }
+
+    public void backtrack(List<Integer> res, int n){
+
     }
 }
