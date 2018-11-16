@@ -27,12 +27,12 @@ public class Permute {
     public List<List<Integer>> permute(int[] nums) {
 
         List<List<Integer>> res = new ArrayList<>();
-
+        flags = new boolean[nums.length];
         backtrack(res,new ArrayList<>(),nums);
         return res;
     }
 
-    private boolean[] flags = new boolean[3];
+    private boolean[] flags;
 
     public void backtrack(List<List<Integer>> res, List<Integer> temp, int[] nums){
         if (temp.size() == nums.length){
