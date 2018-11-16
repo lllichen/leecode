@@ -41,7 +41,7 @@ public class Permute {
         for (int i = start; i < nums.length; i++)
         {
             temp.add(nums[i]);
-            backtrack(res,temp,nums,i+1);
+            backtrack(res,temp, nums, i+1);
             temp.remove(temp.size()-1);
         }
     }
