@@ -1,6 +1,7 @@
 package ink.lichen.leecode.tx;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -35,9 +36,12 @@ public class GrayCode {
      * @return
      */
     public List<Integer> grayCode(int n) {
-        List<Integer> res = new ArrayList<>();
-        backtrack(res,n);
-        return res;
+        List<Integer> result = new LinkedList<>();
+        for (int i = 0; i < 1<<n; i++) result.add(i ^ i>>1);
+        return result;
+//        List<Integer> res = new ArrayList<>();
+//        backtrack(res,n);
+//        return res;
     }
 
     public void backtrack(List<Integer> res, int n){
