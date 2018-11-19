@@ -13,6 +13,16 @@ import ink.lichen.leecode.support.TreeNode;
  *
  * 输出: 6
  *
+ * 输入: [-10,9,20,null,null,15,7]
+ *
+ *    -10
+ *    / \
+ *   9  20
+ *     /  \
+ *    15   7
+ *
+ * 输出: 42
+ *
  */
 public class MaxPathSum {
 
