@@ -10,14 +10,16 @@ public class KthSmallest {
     int k;
 
     private void traverse(TreeNode root) {
-        if (count >= k) return;
-        if (root.left != null) traverse(root.left);
-        count ++;
-        if (count == k) {
-            kth = root.val;
+        if (count >= k){
             return;
         }
-        if (root.right != null) traverse(root.right);
+        if (root.left != null)traverse(root.left);
+        count++;
+        if (count == k){
+            this.kth = root.val;
+            return;
+        }
+        if (root.right != null) {traverse(root.right);}
     }
 
     public int kthSmallest(TreeNode root, int k) {
