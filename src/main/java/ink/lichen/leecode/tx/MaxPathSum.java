@@ -16,8 +16,15 @@ import ink.lichen.leecode.support.TreeNode;
  */
 public class MaxPathSum {
 
+    private int max;
+
+    private int cur;
 
     public int maxPathSum(TreeNode root) {
+        if (root == null)return 0;
+        if (root.left != null) {
+            return maxPathSum(root.left);
+        }
 
         return 0;
     }
