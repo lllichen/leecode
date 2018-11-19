@@ -30,10 +30,13 @@ public class MaxPathSum {
 
     private int cur;
 
+    private TreeNode root;
+
     public int maxPathSum(TreeNode root) {
         if (root == null)return 0;
         max = root.val;
-        cur = 0;
+
+        this.root = root;
         help(root);
         return max;
     }
@@ -44,8 +47,15 @@ public class MaxPathSum {
         int leftVal = help(root.left)+root.val;
         int rightVal = help(root.right)+root.val;
         int maxVal = leftVal > rightVal ? leftVal:rightVal;
+        System.out.println(maxVal);
+
+        int all = leftVal+rightVal-root.val;
+        if (max < all){
+            max = all;
+        }
         if (max < maxVal)
             max = maxVal;
+
         return maxVal < 0 ? 0 : maxVal;
     }
 
@@ -63,6 +73,10 @@ public class MaxPathSum {
 //        54
 //        55
 //        48
+
+//                TreeNode root = new TreeNode(1);
+//        root.left = new TreeNode(2);
+//        root.right= new TreeNode(3);
 
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(-2);
