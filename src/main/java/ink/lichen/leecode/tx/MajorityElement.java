@@ -1,5 +1,8 @@
 package ink.lichen.leecode.tx;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by lichen@daojia.com on 2018-11-19.
  *
@@ -13,7 +16,15 @@ package ink.lichen.leecode.tx;
 public class MajorityElement {
 
     public int majorityElement(int[] nums) {
-
+        Map<Integer,Integer> res = new HashMap<>();
+        int n = nums.length;
+        int val = n /2;
+        for (int t : nums){
+            res.put(t, res.getOrDefault(t,0)+1);
+            if (res.get(t) > val){
+                return t;
+            }
+        }
         return 0;
     }
 }
