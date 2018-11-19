@@ -17,7 +17,7 @@ public class IsPalindrome {
         }
 
         int a = x,h=1;
-        while (a/10 >= 10){
+        while (a/ h >= 10){
             h = h*10;
         }
         while (a > 0){
@@ -27,5 +27,10 @@ public class IsPalindrome {
             h = h / 100;
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        IsPalindrome isPalindrome = new IsPalindrome();
+        isPalindrome.isPalindrome(12344321);
     }
 }
