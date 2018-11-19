@@ -31,6 +31,13 @@ public class LowestCommonAncestor {
 
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+//        int val_r = root.val;
+//        int val_p = p.val;
+//        int val_q = q.val;
+//        if (p.val < root.val)
+        if (root == null){
+
+        }
 
         return null;
     }
