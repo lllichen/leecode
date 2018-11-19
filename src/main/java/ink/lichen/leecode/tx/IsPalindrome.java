@@ -18,7 +18,14 @@ public class IsPalindrome {
 
         int a = x,h=1;
         while (a/10 >= 10){
-            h = h/10;
+            h = h*10;
         }
+        while (a > 0){
+            if (a/h != a % 10) return false;
+            a = a % h;
+            a = a / 10;
+            h = h / 100;
+        }
+        return true;
     }
 }
