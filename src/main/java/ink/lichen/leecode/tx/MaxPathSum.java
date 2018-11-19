@@ -38,22 +38,15 @@ public class MaxPathSum {
         return max;
     }
 
-    public void help(TreeNode root){
-        if (root == null)return;
-        if (root.left != null) {
-            help(root.left);
-        }
-        cur += root.val;
-        if (cur > max)
-            max = cur;
-        if (cur < 0)
-            cur = 0;
-        if (root.right != null) {
-            help(root.right);
-            if (root.val < 0)
-                cur = cur + root.val;
-        }
+    public int help(TreeNode root){
+        if (root == null)return 0;
 
+        int leftVal = help(root.left)+root.val;
+        int rightVal = help(root.right)+root.val;
+        int maxVal = leftVal > rightVal ? leftVal:rightVal;
+        if (max < maxVal)
+            max = maxVal;
+        return maxVal < 0 ? 0 : maxVal;
     }
 
 
