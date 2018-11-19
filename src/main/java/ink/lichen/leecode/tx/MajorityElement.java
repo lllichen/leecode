@@ -16,15 +16,20 @@ import java.util.Map;
 public class MajorityElement {
 
     public int majorityElement(int[] nums) {
-        Map<Integer,Integer> res = new HashMap<>();
-        int n = nums.length;
-        int val = n /2;
-        for (int t : nums){
-            res.put(t, res.getOrDefault(t,0)+1);
-            if (res.get(t) > val){
-                return t;
+        int count = 1, maj = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            if (maj == nums[i])
+                count++;
+            else {
+                count--;
+                if (count == 0) {
+                    maj = nums[i+1];
+                    count = 0;
+                }
             }
         }
-        return 0;
+
+        return maj;
     }
 }
