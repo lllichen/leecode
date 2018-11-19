@@ -6,12 +6,6 @@ package ink.lichen.leecode.tx;
 public class IsPowerOfTwo {
 
     public boolean isPowerOfTwo(int n) {
-
-
-        return false;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(1>>2);
+        return n>0 && (n&n-1)==0;
     }
 }
