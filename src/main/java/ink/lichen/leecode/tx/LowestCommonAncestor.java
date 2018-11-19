@@ -30,22 +30,12 @@ import ink.lichen.leecode.support.TreeNode;
 public class LowestCommonAncestor {
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (root != null){
-            return root;
-        }
 
-        //make sure p < q
-        if (p.val > q.val){
-            this.lowestCommonAncestor(root,q,p);
-        }
-        if (q.val < root.val){
-            this.lowestCommonAncestor(root.left,q,p);
-        }else if (q.val > root.val && p.val < root.val){
-            return root;
-        }else if (q.val > root.val){
-            this.lowestCommonAncestor(root.right,p,q);
-        }
-
-        return null;
+        if (root == null) return null;
+        if (root.val > Math.max(p.val, q.val))
+            return lowestCommonAncestor(root.left, p, q);
+        else if (root.val < Math.min(p.val, q.val))
+            return lowestCommonAncestor(root.right, p, q);
+        else return root;
     }
 }
