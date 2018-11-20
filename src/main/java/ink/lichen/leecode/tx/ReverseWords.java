@@ -12,16 +12,15 @@ public class ReverseWords {
         int cur = 0;
         while (cur < n){
             if (cur == ' '){
-                mark = cur;
+                reverseString(chars,mark,cur-1);
+                mark = cur+1;
             }
-            reverseString()
         }
-
-        return "";
+        return new String(chars);
     }
 
     public void reverseString(char[] chars,int left, int right) {
-        for (int i = 0,j = chars.length-1 ; i < chars.length; i++,j--){
+        for (int i = left,j = right ; i <= right; i++,j--){
             if (i >= j ){
                 break;
             }
@@ -29,5 +28,9 @@ public class ReverseWords {
             chars[i] = chars[j];
             chars[j] = tmp;
         }
+    }
+
+    public static void main(String[] args) {
+
     }
 }
