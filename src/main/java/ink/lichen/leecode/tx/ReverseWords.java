@@ -11,15 +11,17 @@ public class ReverseWords {
         int mark = 0;
         int cur = 0;
         while (cur < n){
-            if (cur == ' '){
-                reverseString(chars,mark,cur-1);
+            if (chars[cur] == ' '){
+                reverseChar(chars,mark,cur-1);
                 mark = cur+1;
             }
+            cur++;
         }
+        reverseChar(chars,mark,cur-1);
         return new String(chars);
     }
 
-    public void reverseString(char[] chars,int left, int right) {
+    public void reverseChar(char[] chars, int left, int right) {
         for (int i = left,j = right ; i <= right; i++,j--){
             if (i >= j ){
                 break;
@@ -31,6 +33,7 @@ public class ReverseWords {
     }
 
     public static void main(String[] args) {
-
+        ReverseWords reverseWords = new ReverseWords();
+        System.out.println(reverseWords.reverseWords("Let's take LeetCode contest"));
     }
 }
