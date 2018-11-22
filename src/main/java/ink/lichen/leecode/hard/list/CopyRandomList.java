@@ -20,58 +20,58 @@ public class CopyRandomList {
 
     public RandomListNode copyRandomList(RandomListNode head) {
 
-//        if (head == null){
-//            return null;
-//        }
-//        Map<RandomListNode,RandomListNode> oldNewMap = new HashMap<RandomListNode,RandomListNode>();
-//
-//        RandomListNode dummy = new RandomListNode(0);
-//
-//        RandomListNode cur = dummy;
-//
-//        while (head != null){
-//            RandomListNode newNode = new RandomListNode(head.label);
-//            oldNewMap.put(head,newNode);
-//            head = head.next;
-//            cur.next = newNode;
-//            cur = cur.next;
-//        }
-//
-//        RandomListNode newHead = dummy.next;
-//        while (head != null){
-//            newHead.random = oldNewMap.get(head.random);
-//            head = head.next;
-//            newHead = newHead.next;
-//        }
-//
-//        return dummy.next;
+        if (head == null){
+            return null;
+        }
+        Map<RandomListNode,RandomListNode> oldNewMap = new HashMap();
 
-        if(head == null)
-            return head;
-        RandomListNode node = head;
-        while(node!=null){
-            RandomListNode newNode = new RandomListNode(node.label);
-            newNode.next = node.next;
-            node.next = newNode;
-            node = newNode.next;
+        RandomListNode dummy = new RandomListNode(0);
+
+        RandomListNode cur = dummy;
+
+        while (head != null){
+            RandomListNode newNode = new RandomListNode(head.label);
+            oldNewMap.put(head,newNode);
+            head = head.next;
+            cur.next = newNode;
+            cur = cur.next;
         }
 
-        node = head;
-        while(node!=null){
-            if(node.random != null)
-                node.next.random = node.random.next;
-            node = node.next.next;
+        RandomListNode newHead = dummy.next;
+        while (head != null){
+            newHead.random = oldNewMap.get(head.random);
+            head = head.next;
+            newHead = newHead.next;
         }
 
-        RandomListNode newHead = head.next;
-        node = head;
-        while(node != null){
-            RandomListNode newNode = node.next;
-            node.next = newNode.next;
-            if(newNode.next!=null)
-                newNode.next = newNode.next.next;
-            node = node.next;
-        }
-        return newHead;
+        return dummy.next;
+
+//        if(head == null)
+//            return head;
+//        RandomListNode node = head;
+//        while(node!=null){
+//            RandomListNode newNode = new RandomListNode(node.label);
+//            newNode.next = node.next;
+//            node.next = newNode;
+//            node = newNode.next;
+//        }
+//
+//        node = head;
+//        while(node!=null){
+//            if(node.random != null)
+//                node.next.random = node.random.next;
+//            node = node.next.next;
+//        }
+//
+//        RandomListNode newHead = head.next;
+//        node = head;
+//        while(node != null){
+//            RandomListNode newNode = node.next;
+//            node.next = newNode.next;
+//            if(newNode.next!=null)
+//                newNode.next = newNode.next.next;
+//            node = node.next;
+//        }
+//        return newHead;
     }
 }
