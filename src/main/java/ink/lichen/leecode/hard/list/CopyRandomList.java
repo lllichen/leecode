@@ -19,29 +19,32 @@ public class CopyRandomList {
 
 
     public RandomListNode copyRandomList(RandomListNode head) {
-
         if (head == null){
             return null;
         }
-        Map<RandomListNode,RandomListNode> oldNewMap = new HashMap();
+        Map<RandomListNode,RandomListNode> oldNewMap = new HashMap<RandomListNode,RandomListNode>();
 
         RandomListNode dummy = new RandomListNode(0);
 
         RandomListNode cur = dummy;
+        RandomListNode temp = head;
 
-        while (head != null){
-            RandomListNode newNode = new RandomListNode(head.label);
-            oldNewMap.put(head,newNode);
-            head = head.next;
+        while (temp != null){
+            RandomListNode newNode = new RandomListNode(temp.label);
+            oldNewMap.put(temp,newNode);
+            temp = temp.next;
             cur.next = newNode;
             cur = cur.next;
         }
 
         RandomListNode newHead = dummy.next;
-        while (head != null){
-            newHead.random = oldNewMap.get(head.random);
-            head = head.next;
-            newHead = newHead.next;
+        temp = head;
+        while (temp != null){
+            if (temp.random != null){
+                newHead.random = oldNewMap.get(temp.random);
+                temp = temp.next;
+                newHead = newHead.next;
+            }
         }
 
         return dummy.next;
