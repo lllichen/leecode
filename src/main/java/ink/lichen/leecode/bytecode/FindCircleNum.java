@@ -19,45 +19,69 @@ package ink.lichen.leecode.bytecode;
  */
 public class FindCircleNum {
 
+    private int n;
 
     public int findCircleNum(int[][] M) {
-        int n = M.length;
-        if (n <= 1) {
-            return n;
-        }
-        int num = 0;
+        n = M.length;
+        int circleNum = 0;
+        boolean[] hasVisited = new boolean[n];
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (M[i][j] == 1) {
-                    dfs(M, i, j);
-                    num++;
-                }
-
+            if (!hasVisited[i]) {
+                dfs(M, i, hasVisited);
+                circleNum++;
             }
         }
-        return num;
+        return circleNum;
     }
 
-    public void dfs(int[][] M, int i, int j) {
-        if (i >= 0 && i < M.length && j >= 0 && j < M.length) {
-            if (M[i][j] == 1) {
-                M[i][j] = 0;
-                M[j][i] = 0;
-                for (int z = 0;z < M.length; z++) {
-                    if (z == i){
-                        continue;
-                    }
-                    dfs(M, z, j);
-                }
-                for (int z = 0; z < M.length; z++) {
-                    if (z == j){
-                        continue;
-                    }
-                    dfs(M, i, z);
-                }
+    private void dfs(int[][] M, int i, boolean[] hasVisited) {
+        hasVisited[i] = true;
+        for (int k = 0; k < n; k++) {
+            if (M[i][k] == 1 && !hasVisited[k]) {
+                dfs(M, k, hasVisited);
             }
         }
     }
+
+
+//    public int findCircleNum(int[][] M) {
+//        int n = M.length;
+//        if (n <= 1) {
+//            return n;
+//        }
+//        int num = 0;
+//        for (int i = 0; i < n; i++) {
+//            for (int j = 0; j < n; j++) {
+//                if (M[i][j] == 1) {
+//                    dfs(M, i, j);
+//                    num++;
+//                }
+//
+//            }
+//        }
+//        return num;
+//    }
+//
+//    public void dfs(int[][] M, int i, int j) {
+//        if (i >= 0 && i < M.length && j >= 0 && j < M.length) {
+//            if (M[i][j] == 1) {
+//                M[i][j] = 0;
+//                M[j][i] = 0;
+//                for (int z = 0;z < M.length; z++) {
+//                    if (z == i){
+//                        continue;
+//                    }
+//                    dfs(M, z, j);
+//                }
+//                for (int z = 0; z < M.length; z++) {
+//                    if (z == j){
+//                        continue;
+//                    }
+//                    dfs(M, i, z);
+//                }
+//            }
+//        }
+//    }
 
     public static void main(String[] args) {
         FindCircleNum findCircleNum = new FindCircleNum();
