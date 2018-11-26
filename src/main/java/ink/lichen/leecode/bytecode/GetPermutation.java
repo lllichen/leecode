@@ -31,12 +31,12 @@ public class GetPermutation {
 
     public String getPermutation(int n, int k) {
         int sum = 1;
-        for (int i = 1 ; i < n ; i++){
-            sum*=i;
+        for (int i = 1 ; i < n ; i++) {
+            sum *= i;
         }
 
-        int val = k/sum;
-        int t = k%sum;
+        int val = k / sum;
+        int t = k % sum;
 
         return "";
     }
