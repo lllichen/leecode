@@ -26,16 +26,15 @@ public class LongestConsecutive {
             int curr = n, len = 0;
             // 一个一个检查上边界
             while(set.contains(curr)){
-                curr++;
                 len++;
-                set.remove(curr);
+                set.remove(curr++);
             }
             // 一个一个检查下边界
             curr = n - 1;
             while(set.contains(curr)){
-                curr--;
+                set.remove(curr--);
                 len++;
-                set.remove(curr);
+
             }
             maxlen = Math.max(len, maxlen);
         }
@@ -44,6 +43,6 @@ public class LongestConsecutive {
 
     public static void main(String[] args) {
         LongestConsecutive longestConsecutive = new LongestConsecutive();
-        longestConsecutive.longestConsecutive(new int[]{100, 4, 200, 1, 3, 2});
+        System.out.println(longestConsecutive.longestConsecutive(new int[]{100, 4, 200, 1, 3, 2}));
     }
 }
