@@ -31,8 +31,18 @@ public class ReverseList {
         if (head == null || head.next == null){
             return head;
         }
+        ListNode pre = null;
+        ListNode node = helper(head,pre);
+        return node;
+    }
 
-//        return pre;
-        return null;
+    private ListNode helper(ListNode cur, ListNode pre){
+        if (cur.next == null){
+            return cur;
+        }
+        ListNode next = cur.next;
+        cur.next = pre;
+        pre = cur;
+        return helper(next,pre);
     }
 }
