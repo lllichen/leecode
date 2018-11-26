@@ -22,7 +22,7 @@ public class FindCircleNum {
 
 
     public int findCircleNum(int[][] M) {
-
+        
         return 0;
     }
 }
