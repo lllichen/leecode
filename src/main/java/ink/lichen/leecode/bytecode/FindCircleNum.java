@@ -22,7 +22,29 @@ public class FindCircleNum {
 
 
     public int findCircleNum(int[][] M) {
-        
-        return 0;
+        int n = M.length;
+        if (n <= 1){
+            return n;
+        }
+        int num = 0;
+        for(int i = 0 ; i < n ; i++) {
+            for (int j = 0 ; j < n ; j++){
+                if (M[i][j] == 1){
+                     dfs(M,i,j);
+                     num++;
+                }
+
+            }
+        }
+        return num;
+    }
+
+    public void dfs(int[][] M, int i, int j){
+        if (i>=0 && i < M.length && j >=0 && j < M.length){
+            if (M[i][j] == 1){
+                M[i][j] = 0;
+                dfs(M,i,j);
+            }
+        }
     }
 }
