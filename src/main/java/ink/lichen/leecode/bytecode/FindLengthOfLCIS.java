@@ -13,8 +13,28 @@ public class FindLengthOfLCIS {
 
 
     public int findLengthOfLCIS(int[] nums) {
+        int i = 0,j = 1, n = nums.length;
+        if (n <= 1){
+            return n;
+        }
+        int max = 0;
+        int cur = 1;
+        while (j < n) {
+            if (nums[j++] > nums[i++]){
+                cur++;
+                if (max < cur){
+                    max = cur;
+                }else {
+                    cur = 0;
+                }
+            }
+        }
 
-        return 1;
+        return max == 0 ? 1:max;
+    }
 
+    public static void main(String[] args) {
+        FindLengthOfLCIS findLengthOfLCIS = new FindLengthOfLCIS();
+        System.out.println(findLengthOfLCIS.findLengthOfLCIS(new int[]{1,3,5,4,7}));
     }
 }
