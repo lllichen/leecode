@@ -10,6 +10,15 @@ public class LongestConsecutive {
 
     public int longestConsecutive(int[] nums) {
 
+        int n = nums.length;
+        if (n <= 1){
+            return n;
+        }
+
+        for (int i = 0 ;i < nums.length; i++){
+
+
+        }
         return 0;
     }
 }
