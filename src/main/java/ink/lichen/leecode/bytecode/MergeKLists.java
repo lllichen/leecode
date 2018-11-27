@@ -18,21 +18,39 @@ public class MergeKLists {
 
 
     public ListNode mergeKLists(ListNode[] lists) {
-        int left = 0,right = lists.length-1;
-//        while (le)
-
-        return null;
+        if(lists==null || lists.length == 0) return null;
+        return sort(lists, 0, lists.length-1);
     }
-
-    public ListNode merge(ListNode[] lists,int left,int right){
-        if (left < right){
-            int center = (left+right)>>1;
-            ListNode leftNode =  merge(lists,left,center);
-            ListNode rightNode = merge(lists,center+1,right);
-
-
+    public ListNode sort(ListNode[] lists, int low, int high){
+        if(low>=high)
+            return lists[low];
+        int mid = (high+low)>>1;
+        ListNode l1 = sort(lists, low, mid);
+        ListNode l2 = sort(lists, mid+1, high);
+        return merge(l1,l2);
+    }
+    public ListNode merge(ListNode l1, ListNode l2){
+        if(l1 == null) return l2;
+        if(l2 == null) return l1;
+        ListNode dummy = new ListNode(0);
+        dummy.next = l1;
+        ListNode cur = dummy;
+        while(l1 != null && l2!=null){
+            if(l1.val<l2.val){
+                l1 = l1.next;
+            }
+            else{
+                ListNode next = l2.next;
+                l2.next = cur.next;
+                cur.next = l2;
+                l2 = next;
+            }
+            cur = cur.next;
         }
-        return null;
+        if(l2 != null){
+            cur.next = l2;
+        }
+        return dummy.next;
     }
 
 }
