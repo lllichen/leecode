@@ -9,22 +9,25 @@ import ink.lichen.leecode.support.ListNode;
 public class DetectCycle {
 
     public ListNode detectCycle(ListNode head) {
-        ListNode slow = head.next;
-        ListNode fast = head.next.next;
-        while (fast != null&& fast.next != null){
-            if (fast == slow || fast.next == slow){
-                break;
-            }else {
-                fast = fast.next.next;
-                slow = slow.next;
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast!=null && fast.next!=null){
+            fast = fast.next.next;
+            slow = slow.next;
+
+            if (fast == slow){
+                ListNode slow2 = head;
+                while (slow2 != slow){
+                    slow = slow.next;
+                    slow2 = slow2.next;
+                }
+                return slow;
             }
         }
-
-        fast = head;
-        while (fast != slow){
-            slow = slow.next;
-            fast = fast.next;
-        }
-        return fast;
+        return null;
     }
 }
+
+
