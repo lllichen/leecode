@@ -30,8 +30,9 @@ public class MergeKLists {
             ListNode leftNode =  merge(lists,left,center);
             ListNode rightNode = merge(lists,center+1,right);
 
-            return null;
+
         }
+        return null;
     }
 
 }
