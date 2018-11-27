@@ -14,9 +14,17 @@ public class DetectCycle {
         while (fast != null&& fast.next != null){
             if (fast == slow || fast.next == slow){
                 break;
+            }else {
+                fast = fast.next.next;
+                slow = slow.next;
             }
         }
 
-        return null;
+        fast = head;
+        while (fast != slow){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return fast;
     }
 }
