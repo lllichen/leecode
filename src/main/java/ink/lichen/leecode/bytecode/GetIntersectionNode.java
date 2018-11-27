@@ -4,8 +4,8 @@ import ink.lichen.leecode.support.ListNode;
 
 /**
  * Created by lichen@daojia.com on 2018-11-27.
- * A:          a1 → a2
- *                    ↘
+ * A:          a1 → a2                        a1>a2>c1>c2>c3>b1>b2>b3>c1>c2>c3
+ *                    ↘                      b1>b2>b3>c1>c2>c3>a1>a2>c1>c2>c3
  *                      c1 → c2 → c3
  *                    ↗
  * B:     b1 → b2 → b3
@@ -20,7 +20,28 @@ public class GetIntersectionNode {
 
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-
+        if(headA == null || headB == null){
+            return null;
+        }
+        ListNode dummyA = headA;
+        ListNode dummyB = headB;
+        boolean changeA = true;
+        boolean changeB = true;
+        while (dummyA != null || dummyB != null){
+            if (changeA && dummyA ==null ){
+                dummyA= headB;
+                changeA = false;
+            }
+            if (changeB && dummyB == null){
+                dummyB = headA;
+                changeB = false;
+            }
+            if (dummyA == dummyB){
+                return dummyA;
+            }
+            dummyA =dummyA.next;
+            dummyB = dummyB.next;
+        }
         return null;
     }
 }
