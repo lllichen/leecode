@@ -1,5 +1,8 @@
 package ink.lichen.leecode.bytecode;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  * Created by lichen@daojia.com on 2018-11-28.
  *
@@ -14,6 +17,8 @@ package ink.lichen.leecode.bytecode;
  * 输入: envelopes = [[5,4],[6,4],[6,7],[2,3]]
  * 输出: 3
  * 解释: 最多信封的个数为 3, 组合为: [2,3] => [5,4] => [6,7]
+ *
+ * [[4,5],[6,7],[2,3]]
  */
 public class MaxEnvelopes {
 
@@ -23,16 +28,29 @@ public class MaxEnvelopes {
         if (n <= 1){
             return n;
         }
-        int max = 1;
+        int max = 0;
 
         int[] buckets= new int[n];
 
-        for (int i = 0 ; i < n; i++) {
-            for (int j = 0 ; j!=i && j < n; j++){
+        for (int i = 0 ; i < n-1; i++) {
 
+            int[] en = envelopes[i];
+            for (int j = i+1 ;  j < n; j++){
+                int[] cp = envelopes[j];
+                if (en[0]<cp[0] && en[1] < cp[1]){
+                    buckets[i]+=1;
+                }else if (en[0]>cp[0] && en[1] > cp[1]){
+                    buckets[j]+=1;
+                }
+                if (max < buckets[i]){
+                    max = buckets[i];
+                }
+                if (max < buckets[j]){
+                    max = buckets[j];
+                }
             }
         }
 
-        return 0;
+        return max == 0 ? 1 : max;
     }
 }
