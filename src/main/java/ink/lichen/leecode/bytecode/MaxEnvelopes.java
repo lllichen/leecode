@@ -18,6 +18,13 @@ import java.util.Arrays;
  * 解释: 最多信封的个数为 3, 组合为: [2,3] => [5,4] => [6,7]
  * <p>
  * [[4,5],[6,7],[2,3]]
+ * <p>
+ * [[4,5],[4,6],[6,7],[2,3],[1,1]]
+ * [[1,1],[2,3],[4,5],[4,6],[6,7]]
+ * f(0) = 1;
+ * f(1) = f(0)+1;
+ *
+ * [[6,1],[13,2],[6,10],[11,14],[16,14]]
  */
 public class MaxEnvelopes {
 
@@ -27,37 +34,37 @@ public class MaxEnvelopes {
         if (n <= 1) {
             return n;
         }
-        int max = 0;
 
-        int[] buckets = new int[n];
         Arrays.sort(envelopes, (o1, o2) -> {
             if (o1[0] * o1[1] < o2[0] * o2[1])
                 return -1;
             else
                 return 1;
         });
+        int[] vals = new int[n + 1];
 
-        for (int i = 0; i < n - 1; i++) {
+        vals[0] = 0;
+        int max = 1;
+        for (int i = 0; i < n; i++) {
 
-            int[] en = envelopes[i];
-            for (int j = i + 1; j < n; j++) {
-                int[] cp = envelopes[j];
-                if (en[0] < cp[0] && en[1] < cp[1]) {
-                    buckets[j] += 1;
-                }
-                if (max < buckets[i]) {
-                    max = buckets[i];
-                }
-                if (max < buckets[j]) {
-                    max = buckets[j];
+            for (int j = i; j >= 0; j--) {
+                if (j == 0) {
+                    vals[i+1] = vals[j] + 1;
+
+                } else {
+                    if (envelopes[i ][0] > envelopes[j - 1][0] && envelopes[i][1] > envelopes[j - 1][1]) {
+                        vals[i + 1] = vals[j] + 1;
+                        break;
+                    }
                 }
             }
+
+            if (max < vals[i+1]){
+                max = vals[i+1];
+            }
         }
-        return max + 1;
+        return max;
     }
-//    [[5,4],[6,4],[6,7],[2,3]]
-//    [[4,5],[4,6],[6,7],[2,3],[1,1]]
-//      [[1,1],[2,3],[4,5],[4,6],[6,7]]
 
 //        public int maxEnvelopes(int[][] envelopes) {
 //            Arrays.sort(envelopes, (e1, e2) -> {
@@ -81,11 +88,12 @@ public class MaxEnvelopes {
     public static void main(String[] args) {
         MaxEnvelopes maxEnvelopes = new MaxEnvelopes();
         maxEnvelopes.maxEnvelopes(new int[][]{
-                {5,4},
-                {6,4},
-                {6,7},
-                {2,3}}
-                );
+//                {5, 4},
+//                {6, 4},
+//                {6, 7},
+//                {2, 3}}
+                {6,10},{11,14},{6,1},{16,14},{13,2}}
+        );
     }
 
 }
