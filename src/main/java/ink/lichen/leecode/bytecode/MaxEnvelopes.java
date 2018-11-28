@@ -43,8 +43,6 @@ public class MaxEnvelopes {
             for (int j = i + 1; j < n; j++) {
                 int[] cp = envelopes[j];
                 if (en[0] < cp[0] && en[1] < cp[1]) {
-                    buckets[i] += 1;
-                } else if (en[0] > cp[0] && en[1] > cp[1]) {
                     buckets[j] += 1;
                 }
                 if (max < buckets[i]) {
@@ -58,6 +56,9 @@ public class MaxEnvelopes {
         return max + 1;
     }
 //    [[5,4],[6,4],[6,7],[2,3]]
+//    [[4,5],[4,6],[6,7],[2,3],[1,1]]
+//      [[1,1],[2,3],[4,5],[4,6],[6,7]]
+
 //        public int maxEnvelopes(int[][] envelopes) {
 //            Arrays.sort(envelopes, (e1, e2) -> {
 //                if (e1[0] != e2[0]) return e1[0] - e2[0];
@@ -80,7 +81,8 @@ public class MaxEnvelopes {
     public static void main(String[] args) {
         MaxEnvelopes maxEnvelopes = new MaxEnvelopes();
         maxEnvelopes.maxEnvelopes(new int[][]{
-                {4,5},
+                {5,4},
+                {6,4},
                 {6,7},
                 {2,3}}
                 );
