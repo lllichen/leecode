@@ -16,11 +16,21 @@ import java.util.List;
  *    [6,5,7],
  *   [4,1,8,3]
  * ]
+ *
+ * 自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。
+ *
  */
 public class MinimumTotal {
 
 
     public int minimumTotal(List<List<Integer>> triangle) {
+        int [] nums = new int[triangle.size()];
+
+        for (int i = 0 ; i < triangle.size(); i++){
+
+
+
+        }
 
         return 0;
     }
