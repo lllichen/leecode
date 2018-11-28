@@ -2,6 +2,7 @@ package ink.lichen.leecode.bytecode;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Created by lichen@daojia.com on 2018-11-28.
@@ -23,34 +24,51 @@ import java.util.Arrays;
 public class MaxEnvelopes {
 
 
-    public int maxEnvelopes(int[][] envelopes) {
-        int n = envelopes.length;
-        if (n <= 1){
-            return n;
-        }
-        int max = 0;
+//    public int maxEnvelopes(int[][] envelopes) {
+//        int n = envelopes.length;
+//        if (n <= 1){
+//            return n;
+//        }
+//        int max = 0;
+//
+//        int[] buckets= new int[n];
+//
+//        for (int i = 0 ; i < n-1; i++) {
+//
+//            int[] en = envelopes[i];
+//            for (int j = i+1 ;  j < n; j++){
+//                int[] cp = envelopes[j];
+//                if (en[0]<cp[0] && en[1] < cp[1]){
+//                    buckets[i]+=1;
+//                }else if (en[0]>cp[0] && en[1] > cp[1]){
+//                    buckets[j]+=1;
+//                }
+//                if (max < buckets[i]){
+//                    max = buckets[i];
+//                }
+//                if (max < buckets[j]){
+//                    max = buckets[j];
+//                }
+//            }
+//        }
+//        return max == 0 ? 1 : max;
 
-        int[] buckets= new int[n];
-
-        for (int i = 0 ; i < n-1; i++) {
-
-            int[] en = envelopes[i];
-            for (int j = i+1 ;  j < n; j++){
-                int[] cp = envelopes[j];
-                if (en[0]<cp[0] && en[1] < cp[1]){
-                    buckets[i]+=1;
-                }else if (en[0]>cp[0] && en[1] > cp[1]){
-                    buckets[j]+=1;
+        public int maxEnvelopes(int[][] envelopes) {
+            Arrays.sort(envelopes, (e1, e2) -> {
+                if (e1[0] != e2[0]) return e1[0] - e2[0];
+                return e2[1] - e1[1];
+            });
+            int len = 0;
+            int[] h = new int[envelopes.length];
+            for(int[] envelope : envelopes) {
+                int i=0, j=len-1;
+                while (i<=j) {
+                    int m = (i+j)/2;
+                    if (h[m] < envelope[1]) i=m+1; else j=m-1;
                 }
-                if (max < buckets[i]){
-                    max = buckets[i];
-                }
-                if (max < buckets[j]){
-                    max = buckets[j];
-                }
+                h[i] = envelope[1];
+                if (i == len) len ++;
             }
+            return len;
         }
-
-        return max == 0 ? 1 : max;
-    }
 }
