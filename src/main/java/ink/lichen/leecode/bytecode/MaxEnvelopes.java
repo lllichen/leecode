@@ -19,6 +19,14 @@ public class MaxEnvelopes {
 
 
     public int maxEnvelopes(int[][] envelopes) {
+        int n = envelopes.length;
+        if (n <= 1){
+            return n;
+        }
+
+        for (int i = 0 ; i < n; i++) {
+
+        }
 
         return 0;
     }
