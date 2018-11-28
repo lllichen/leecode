@@ -12,7 +12,10 @@ package ink.lichen.leecode.bytecode;
  * 1 0 0 1 0
  *
  * 输出: 4
+ *   b[i][j] = Math.min(Math.min(b[i][j-1] , b[i-1][j-1]), b[i-1][j]) + 1;
+ * b[1][1] = Math.min(Math.min(1,1),0)+1=1
  *
+ *  learn
  */
 public class MaximalSquare {
 
