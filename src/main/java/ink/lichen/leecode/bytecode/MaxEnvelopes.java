@@ -23,9 +23,9 @@ public class MaxEnvelopes {
         if (n <= 1){
             return n;
         }
+        int max = 1;
 
         for (int i = 0 ; i < n; i++) {
-
         }
 
         return 0;
