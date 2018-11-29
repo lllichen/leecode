@@ -46,6 +46,8 @@ public class MaxEnvelopes {
 //    [[5,4],[6,4],[6,7],[2,3]]
 //    [[4,5],[4,6],[6,7],[2,3],[1,1]]
 //     [[1,1],[2,3],[4,6],[4,5],[6,7]]
+//        [1,1] i = 0, j = -1  h[0] = 1 ,len 0->1
+//        [2,3] i = 0, j = 0  m = 0 -> i = 1 -> h[1] = 3 -> len 1->2
 
         public int maxEnvelopes(int[][] envelopes) {
             Arrays.sort(envelopes, (e1, e2) -> {
@@ -72,7 +74,7 @@ public class MaxEnvelopes {
                 {5,4},
                 {6,4},
                 {6,7},
-                {2,3}}
+                {2,7}}
                 );
     }
 
