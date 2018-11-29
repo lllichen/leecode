@@ -1,6 +1,7 @@
 package ink.lichen.leecode.bytecode;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Created by lichen@daojia.com on 2018-11-28.
@@ -22,61 +23,48 @@ import java.util.Arrays;
 public class MaxEnvelopes {
 
 
-    public int maxEnvelopes(int[][] envelopes) {
-        int n = envelopes.length;
-        if (n <= 1) {
-            return n;
-        }
-        int max = 0;
+//    public int maxEnvelopes(int[][] envelopes) {
+//
+//        Arrays.sort(envelopes, (e1, e2) -> Integer.compare(e1[0], e2[0]));
+//
+//        int   n  = envelopes.length;
+//        int[] dp = new int[n];
+//        int ret = 0;
+//        for (int i = 0 ; i < n; i++){
+//
+//            dp[i] = 1;
+//            for (int j = 0 ; j < n; j++){
+//                if (envelopes[i][0]>envelopes[j][0] && envelopes[i][1] > envelopes[j][1]){
+//                    dp[i] = Math.max(dp[i],dp[j]+1);
+//                }
+//                ret = Math.max(ret,dp[i]);
+//            }
+//        }
+//        return ret;
 
-        int[] buckets = new int[n];
-        Arrays.sort(envelopes, (o1, o2) -> {
-            if (o1[0] * o1[1] < o2[0] * o2[1])
-                return -1;
-            else
-                return 1;
-        });
-
-        for (int i = 0; i < n - 1; i++) {
-
-            int[] en = envelopes[i];
-            for (int j = i + 1; j < n; j++) {
-                int[] cp = envelopes[j];
-                if (en[0] < cp[0] && en[1] < cp[1]) {
-                    buckets[j] += 1;
-                }
-                if (max < buckets[i]) {
-                    max = buckets[i];
-                }
-                if (max < buckets[j]) {
-                    max = buckets[j];
-                }
-            }
-        }
-        return max + 1;
-    }
+//    }
 //    [[5,4],[6,4],[6,7],[2,3]]
 //    [[4,5],[4,6],[6,7],[2,3],[1,1]]
-//      [[1,1],[2,3],[4,5],[4,6],[6,7]]
+//     [[1,1],[2,3],[4,6],[4,5],[6,7]]
 
-//        public int maxEnvelopes(int[][] envelopes) {
-//            Arrays.sort(envelopes, (e1, e2) -> {
-//                if (e1[0] != e2[0]) return e1[0] - e2[0];
-//                return e2[1] - e1[1];
-//            });
-//            int len = 0;
-//            int[] h = new int[envelopes.length];
-//            for(int[] envelope : envelopes) {
-//                int i=0, j=len-1;
-//                while (i<=j) {
-//                    int m = (i+j)/2;
-//                    if (h[m] < envelope[1]) i=m+1; else j=m-1;
-//                }
-//                h[i] = envelope[1];
-//                if (i == len) len ++;
-//            }
-//            return len;
-//        }
+        public int maxEnvelopes(int[][] envelopes) {
+            Arrays.sort(envelopes, (e1, e2) -> {
+                if (e1[0] != e2[0]) return e1[0] - e2[0];
+                return e2[1] - e1[1];
+            });
+            int len = 0;
+            int[] h = new int[envelopes.length];
+            for(int[] envelope : envelopes) {
+                int i=0, j=len-1;
+                while (i<=j) {
+                    int m = (i+j)/2;
+                    if (h[m] < envelope[1]) i=m+1; else j=m-1;
+                }
+                h[i] = envelope[1];
+                if (i == len) len ++;
+            }
+            return len;
+        }
 
     public static void main(String[] args) {
         MaxEnvelopes maxEnvelopes = new MaxEnvelopes();
