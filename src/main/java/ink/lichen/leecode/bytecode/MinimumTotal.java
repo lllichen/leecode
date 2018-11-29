@@ -24,24 +24,12 @@ public class MinimumTotal {
 
 
     public int minimumTotal(List<List<Integer>> triangle) {
-        int [] nums = new int[triangle.size()];
-
-        for (int i = 0 ; i < triangle.size(); i++){
-            List<Integer> list = triangle.get(i);
-            for (int j = 0; j < list.size(); j++){
-                if (i == 0 ){
-                    continue;
-                }else {
-                    if (j == 0){
-                        int val = triangle.get(i-1).get(j)+list.get(j);
-                        list.set(j, val);
-                    }
-                }
+        int[] A = new int[triangle.size()+1];
+        for(int i=triangle.size()-1;i>=0;i--){
+            for(int j=0;j<triangle.get(i).size();j++){
+                A[j] = Math.min(A[j],A[j+1])+triangle.get(i).get(j);
             }
-
-
         }
-
-        return 0;
+        return A[0];
     }
 }
