@@ -11,10 +11,10 @@ import java.util.List;
  * 例如，给定三角形：
  *
  * [
- *      [2],
- *     [3,4],
+ *    [2],
+ *    [3,4],
  *    [6,5,7],
- *   [4,1,8,3]
+ *    [4,1,8,3]
  * ]
  *
  * 自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。
@@ -27,7 +27,17 @@ public class MinimumTotal {
         int [] nums = new int[triangle.size()];
 
         for (int i = 0 ; i < triangle.size(); i++){
-
+            List<Integer> list = triangle.get(i);
+            for (int j = 0; j < list.size(); j++){
+                if (i == 0 ){
+                    continue;
+                }else {
+                    if (j == 0){
+                        int val = triangle.get(i-1).get(j)+list.get(j);
+                        list.set(j, val);
+                    }
+                }
+            }
 
 
         }
