@@ -1,7 +1,8 @@
 package ink.lichen.leecode.bytecode;
 
-import java.util.HashMap;
-import java.util.Map;
+import sun.plugin.javascript.navig.Link;
+
+import java.util.*;
 
 /**
  *
@@ -19,47 +20,52 @@ import java.util.Map;
  * 挑战：以 O(1) 的时间复杂度实现所有操作。
  */
 public class AllOne {
-
     private Map<String,Integer> map;
+    private List<Set<String>> list;
 
-    private Integer max;
-
-    private Integer min;
-
-    /** Initialize your data structure here. */
     public AllOne() {
         map = new HashMap<>();
+        list = new ArrayList<>();
     }
 
-    /** Inserts a new key <Key> with value 1. Or increments an existing key by 1. */
     public void inc(String key) {
-        Integer val = map.getOrDefault(key,0)+1;
-        map.put(key,val);
-        if (max < val){
-            max = val;
-        }
-        if (min > val){
-            min = val;
-        }
+        int i;
+        if (map.containsKey(key)){
+            i = map.get(key);
+            list.get(i).remove(key);
+            i++;
+        }else i=0;
+        while (list.size()<=i) list.add(new HashSet<>());
+        list.get(i).add(key);
+        map.put(key,i);
     }
 
-    /** Decrements an existing key by 1. If Key's value is 1, remove it from the data structure. */
     public void dec(String key) {
-
-    }
-
-    /** Returns one of the keys with maximal value. */
-    public String getMaxKey() {
-        if (map.size() == 0){
-            return "";
+        if (!map.containsKey(key)) return;
+        Integer i = map.get(key);
+        list.get(i--).remove(key);
+        if (i<0){
+            map.remove(key);
+        }else {
+            list.get(i).add(key);
+            map.put(key,i);
         }
-        return max.toString();
     }
 
-    /** Returns one of the keys with Minimal value. */
-    public String getMinKey() {
-
+    public String getMaxKey() {
+        for (int i = list.size() - 1; i >= 0; i--) {
+            Set<String> set = list.get(i);
+            if (set.isEmpty()) continue;
+            return set.iterator().next();
+        }
         return "";
     }
 
+    public String getMinKey() {
+        for (Set<String> set : list) {
+            if (set.isEmpty()) continue;
+            return set.iterator().next();
+        }
+        return "";
+    }
 }
