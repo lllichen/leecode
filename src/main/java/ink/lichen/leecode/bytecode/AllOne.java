@@ -22,19 +22,25 @@ public class AllOne {
 
     private Map<String,Integer> map;
 
+    private Integer max;
+
+    private Integer min;
 
     /** Initialize your data structure here. */
     public AllOne() {
         map = new HashMap<>();
-
     }
 
     /** Inserts a new key <Key> with value 1. Or increments an existing key by 1. */
     public void inc(String key) {
         Integer val = map.getOrDefault(key,0)+1;
-
-
         map.put(key,val);
+        if (max < val){
+            max = val;
+        }
+        if (min > val){
+            min = val;
+        }
     }
 
     /** Decrements an existing key by 1. If Key's value is 1, remove it from the data structure. */
@@ -47,7 +53,7 @@ public class AllOne {
         if (map.size() == 0){
             return "";
         }
-        return "";
+        return max.toString();
     }
 
     /** Returns one of the keys with Minimal value. */
