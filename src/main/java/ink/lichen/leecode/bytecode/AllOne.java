@@ -40,13 +40,13 @@ public class AllOne {
     /** Decrements an existing key by 1. If Key's value is 1, remove it from the data structure. */
     public void dec(String key) {
 
-
-
     }
 
     /** Returns one of the keys with maximal value. */
     public String getMaxKey() {
-
+        if (map.size() == 0){
+            return "";
+        }
         return "";
     }
 
