@@ -14,42 +14,36 @@ import java.util.Stack;
  */
 public class MinStack {
 
+    private Stack<Integer> mainStack;
 
-    private Stack<Pair> st = new Stack<>();    // top of stack
+    private Stack<Integer> minStack;
 
     /** initialize your data structure here. */
     public MinStack() {
-
+        mainStack = new Stack<>();
+        minStack = new Stack<>();
     }
 
     public void push(int x) {
-        if (st.isEmpty()){
-            st.push(new Pair(x, x));
-        }else {
-            int min = st.peek().min;
-            st.push(new Pair(x,Math.min(x,min)));
+        mainStack.push(x);
+        if (minStack.size() == 0 || minStack.peek() >= x ){
+            minStack.push(x);
         }
     }
 
     public void pop() {
-        if(!st.isEmpty()) {
-            st.pop();
+        int val = mainStack.pop();
+        if (val == minStack.peek()){
+            minStack.pop();
         }
     }
 
     public int top() {
-        return st.peek().val;
+        return mainStack.peek();
     }
 
     public int getMin() {
-        return st.peek().min;
+        return minStack.peek();
     }
 
-    class Pair {
-        int val;
-        int min;
-        public Pair(int val, int min) {
-            this.val = val; this.min = min;
-        }
-    }
 }
