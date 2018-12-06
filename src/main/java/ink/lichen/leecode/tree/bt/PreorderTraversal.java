@@ -12,22 +12,34 @@ import java.util.Stack;
 public class PreorderTraversal {
 
 
-    public void help(TreeNode node, List<Integer> list){
-        if (node != null)
-            list.add(node.val);
-        help(node.left,list);
-        help(node.right,list);
-    }
+//    public void help(TreeNode node, List<Integer> list){
+//        if (node != null) {
+//            list.add(node.val);
+//            help(node.left, list);
+//            help(node.right, list);
+//        }
+//    }
+//
+//    public List<Integer> preorderTraversal(TreeNode root) {
+//        List<Integer> list = new ArrayList<>();
+//
+//        if (root == null) {
+//            return list;
+//        }
+//        help(root, list);
+//        return list;
+//    }
 
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-
         if (root == null){
             return list;
         }
-        help(root,list);
-        return list;
+        TreeNode p = null;
+        Stack<TreeNode> stack = new Stack<>();
+        while (!stack.isEmpty()){
 
+        }
 //        List<Integer> list = new ArrayList<>();
 //        if (root == null) return list;
 //        Stack<TreeNode> stack = new Stack<>();
