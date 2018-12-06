@@ -3,6 +3,7 @@ package ink.lichen.leecode.tree.bt;
 import ink.lichen.leecode.support.TreeNode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -26,26 +27,22 @@ public class PostorderTraversal {
 //    }
 
     public List<Integer> postorderTraversal(TreeNode root) {
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new LinkedList<>();
         if(root==null){
             return list;
         }
         Stack<TreeNode> main = new Stack<>();
-        Stack<TreeNode> res = new Stack<>();
         main.push(root);
         TreeNode temp = null;
         while (!main.isEmpty()){
             temp = main.pop();
-            res.push(temp);
+            ((LinkedList<Integer>) list).addFirst(temp.val);
             if (temp.left != null){
                 main.push(temp.left);
             }
             if (temp.right != null){
                 main.push(temp.right);
             }
-        }
-        while (!res.isEmpty()){
-            list.add(res.pop().val);
         }
         return list;
     }
