@@ -10,20 +10,29 @@ import java.util.List;
  */
 public class InorderTraversal {
 
+//    public List<Integer> inorderTraversal(TreeNode root) {
+//        List<Integer> list = new ArrayList<>();
+//        if (root == null){
+//            return list;
+//        }
+//        help(list,root);
+//        return list;
+//    }
+//
+//    public void help(List<Integer> list,TreeNode node){
+//        if (node != null){
+//            help(list,node.left);
+//            list.add(node.val);
+//            help(list,node.right);
+//        }
+//    }
+
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (root == null){
             return list;
         }
-        help(list,root);
-        return list;
-    }
 
-    public void help(List<Integer> list,TreeNode node){
-        if (node != null){
-            help(list,node.left);
-            list.add(node.val);
-            help(list,node.right);
-        }
+        return list;
     }
 }
