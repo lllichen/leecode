@@ -34,7 +34,7 @@ public class InorderTraversal {
             return list;
         }
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode p = null;
+        TreeNode p;
         stack.push(root);
         while (stack.isEmpty()){
             while (stack.peek().left != null){
@@ -43,7 +43,7 @@ public class InorderTraversal {
             p = stack.pop();
             list.add(p.val);
             if (p.right != null){
-                
+                stack.push(p.right);
             }
         }
         return list;
