@@ -29,23 +29,22 @@ public class InorderTraversal {
 //    }
 
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
-        if (root == null){
-            return list;
-        }
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode p;
-        stack.push(root);
-        while (stack.isEmpty()){
-            while (stack.peek().left != null){
-                stack.push(stack.peek().left);
+       List<Integer> res = new ArrayList<>();
+       if (root == null){
+           return res;
+       }
+       TreeNode p = root;
+       Stack<TreeNode> stack = new Stack<>();
+       while (p != null || !stack.isEmpty()){
+            if (p!= null){
+                stack.push(p);
+                p = p.left;
+            }else {
+                p = stack.pop();
+                res.add(p.val);
+                p = p.right;
             }
-            p = stack.pop();
-            list.add(p.val);
-            if (p.right != null){
-                stack.push(p.right);
-            }
-        }
-        return list;
+       }
+       return res;
     }
 }
