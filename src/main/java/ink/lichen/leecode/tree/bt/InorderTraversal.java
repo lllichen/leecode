@@ -4,6 +4,7 @@ import ink.lichen.leecode.support.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Created by lichen@daojia.com on 2018-12-6.
@@ -32,7 +33,19 @@ public class InorderTraversal {
         if (root == null){
             return list;
         }
-
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode p = null;
+        stack.push(root);
+        while (stack.isEmpty()){
+            while (stack.peek().left != null){
+                stack.push(stack.peek().left);
+            }
+            p = stack.pop();
+            list.add(p.val);
+            if (p.right != null){
+                
+            }
+        }
         return list;
     }
 }
