@@ -2,6 +2,8 @@ package ink.lichen.leecode.tree.bst;
 
 import ink.lichen.leecode.support.TreeNode;
 
+import java.util.Stack;
+
 /**
  * Created by lichen@daojia.com on 2018-12-6.
  */
@@ -9,6 +11,7 @@ public class IsValidBST {
 
 
     public boolean isValidBST(TreeNode root) {
+        Stack<Integer> stack = new Stack<>();
         if (root == null){
             return true;
         }
