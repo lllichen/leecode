@@ -2,6 +2,7 @@ package ink.lichen.leecode.bytecode;
 
 import sun.plugin.javascript.navig.Link;
 
+import java.nio.file.Files;
 import java.util.*;
 
 /**
@@ -67,5 +68,10 @@ public class AllOne {
             return set.iterator().next();
         }
         return "";
+    }
+
+
+    public static void main(String[] args) {
+//        Files
     }
 }
