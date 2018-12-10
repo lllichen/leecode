@@ -23,9 +23,24 @@ public class SearchBST {
 
 
     public TreeNode searchBST(TreeNode root, int val) {
-
-        TreeNode node = null;
-
-        return node;
+        if (root == null){
+            return null;
+        }
+        int rootVal = root.val;
+        TreeNode res = null;
+        if (val < rootVal){
+             TreeNode treeNode = searchBST(root.left,val);
+             if (treeNode != null){
+                res = treeNode;
+             }
+        }else if (val > rootVal){
+            TreeNode treeNode = searchBST(root.right,val);
+            if (treeNode != null){
+                res = treeNode;
+            }
+        }else {
+            return root;
+        }
+        return res;
     }
 }
