@@ -7,20 +7,23 @@ public class NumArray {
 
     int [] nums;
 
-    int [][] res;
 
     public NumArray(int[] nums) {
         this.nums = nums;
-        res  = new int[nums.length+1][nums.length+1];
-        for (int i = 1 ; i < nums.length+1; i++){
-            for (int j = i ; j < nums.length+1; j++){
-                res[i][j] = res[i][j-1]+nums[i-1];
-            }
+        for (int i = 1 ; i < nums.length; i++){
+            nums[i] = nums[i]+nums[i-1];
         }
 
     }
 
     public int sumRange(int i, int j) {
-        return res[i+1][j+1];
+        return i==0? nums[j]:nums[j]-nums[i-1];
+    }
+
+    public static void main(String[] args) {
+        NumArray numArray = new NumArray(new int[]{-2,0,3,-5,2,-1});
+        System.out.println(numArray.sumRange(0,2));
+        System.out.println(numArray.sumRange(2,5));
+        System.out.println(numArray.sumRange(0,5));
     }
 }
