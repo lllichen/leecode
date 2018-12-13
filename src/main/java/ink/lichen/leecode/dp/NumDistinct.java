@@ -16,7 +16,9 @@ package ink.lichen.leecode.dp;
 public class NumDistinct {
 
     public int numDistinct(String s, String t) {
-
+        int n = s.length();
+        int m = t.length();
+        return 0;
     }
 
 }
