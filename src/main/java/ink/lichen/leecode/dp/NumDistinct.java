@@ -18,6 +18,13 @@ public class NumDistinct {
     public int numDistinct(String s, String t) {
         int n = s.length();
         int m = t.length();
+        if (m > n || n == 0){
+            return 0;
+        }
+        int[] res = new int[n];
+        for (int i = 0 ; i < n ; i++){
+
+        }
         return 0;
     }
 
