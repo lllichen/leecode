@@ -22,4 +22,29 @@ public class MaxDepth {
         }
     }
 
+
+//    private int max = 0;
+//
+//    public int maxDepth(Node root) {
+//
+//        if (root == null){
+//            return max;
+//        }
+//        help(root,0);
+//        return max;
+//    }
+//
+//    public void help(Node root,int height){
+//        if (root == null){
+//            return;
+//        }
+//        height++;
+//        if (max < height){
+//            max = height;
+//        }
+//        for (Node child  : root.children ){
+//            help(child,height);
+//        }
+//    }
+
 }
