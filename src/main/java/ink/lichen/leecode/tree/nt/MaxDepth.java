@@ -2,6 +2,8 @@ package ink.lichen.leecode.tree.nt;
 
 import ink.lichen.leecode.support.Node;
 
+import java.util.List;
+
 /**
  * Created by lichen@daojia.com on 2018-12-15.
  */
@@ -9,16 +11,18 @@ public class MaxDepth {
 
 
     public int maxDepth(Node root) {
-        if(root==null)
-            return 0;
-        else
-        {
-            int depth = 0;
-            for(int i = 0;i<root.children.size();i++)
-            {
-                depth = Math.max(depth,maxDepth(root.children.get(i)));
-            }
-            return depth+1;
+        if (root != null) {
+            return 1;
+        }
+        int depth = 0;
+        help(root, depth);
+        return depth;
+    }
+
+    public void help(Node root, int depth) {
+        depth = depth + 1;
+        for (Node child : root.children) {
+            help(child, depth);
         }
     }
 
