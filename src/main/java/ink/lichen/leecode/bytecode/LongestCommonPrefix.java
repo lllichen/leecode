@@ -9,14 +9,25 @@ package ink.lichen.leecode.bytecode;
 public class LongestCommonPrefix {
 
     public String longestCommonPrefix(String[] strs) {
-        if(strs == null || strs.length == 0)    return "";
-        String pre = strs[0];
-        int i = 1;
-        while(i < strs.length){
-            while(strs[i].indexOf(pre) != 0)
-                pre = pre.substring(0,pre.length()-1);
-            i++;
+        int n = strs.length;
+        if (n == 0){
+            return "";
         }
-        return pre;
+        int min = strs[0].length();
+        for (String str : strs){
+            if (min > str.length()){
+                min = str.length();
+            }
+        }
+        int i = 0;
+        for (; i < min; i++){
+            char t = strs[0].charAt(i);
+            for (int j = 1; j < n; j++){
+                if (t != strs[j].charAt(i)){
+                    return strs[0].substring(0,i);
+                }
+            }
+        }
+        return strs[0].substring(0,i);
     }
 }
