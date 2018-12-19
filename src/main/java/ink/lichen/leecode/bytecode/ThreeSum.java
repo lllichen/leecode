@@ -26,10 +26,11 @@ public class ThreeSum {
                     right--;
                 }else{
                     ans.add(Arrays.asList(nums[i],nums[left],nums[right]));
-
-                    while(nums[left]==nums[++left]){};
-                    while(nums[right]==nums[--right]){};
-                    while(nums[i]==nums[++i]){};
+                    while (left < --right && nums[right] == nums[right + 1]);
+                    while (right > ++left && nums[left] == nums[left - 1]);
+                    while (i < nums.length - 2 && nums[i] == nums[i + 1]) {
+                        i++;
+                    }
                 }
 
             }
@@ -38,4 +39,7 @@ public class ThreeSum {
         return ans;
     }
 
+    public static void main(String[] args) {
+
+    }
 }
