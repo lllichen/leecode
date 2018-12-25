@@ -42,11 +42,14 @@ public class GetPermutation {
         for (int i = 0 ; i < n ; i++ ){
             per = per/(n-i);
             int chose = k / per;
-            sb.append(res[chose]);
             for (int j = chose ; j < n-i-1; j++){
                 res[j] = res[j+1];
             }
             k = k % per;
+            for (int val : res){
+                System.out.print(val);
+            }
+            System.out.println();
         }
         return sb.toString();
     }
