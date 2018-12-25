@@ -30,15 +30,18 @@ public class GetPermutation {
             res[i] = i+1;
             nums *= res[i];
         }
-        for (int i = 0 ; i < n ; i ++){
 
+        for (int i = 0 ; i < n ; i ++){
+            k = 6 % 3;
         }
+
         return "";
     }
 
     public static void main(String[] args) {
-        GetPermutation getPermutation = new GetPermutation();
-        System.out.println(getPermutation.getPermutation(3,3));
+//        GetPermutation getPermutation = new GetPermutation();
+//        System.out.println(getPermutation.getPermutation(3,3));
+        System.out.println(6%3);
     }
 
 }
