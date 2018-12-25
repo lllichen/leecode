@@ -20,6 +20,11 @@ package ink.lichen.leecode.test._12_25;
  * 输入: n = 3, k = 3
  * 输出: "213"
  *
+ * 1*2*3=6
+ *  2 = 6/(3-0)
+ *  chose = 3/2 = 1
+ *  k =
+ *  1 = 2/(3-1)
  */
 public class GetPermutation {
 
@@ -34,21 +39,16 @@ public class GetPermutation {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0 ; i < n ; i ++){
-            perNumCount = perNumCount / (n - i);
-            perNumCount = perNumCount/res[n-1-i];
-            int t = k/ perNumCount;
-            k = k % perNumCount;
-            if (k != 0){
-                sb.append(t+1);
-            }else {
-                sb.append(t);
+            perNumCount = perNumCount/(n - i);
+            int chose = k / perNumCount;
+            sb.append(res [chose]);
+            for(int j = chose; i < n-i-1; i++){
+                res[j] = res[j+1];
             }
-
-
-
+            k = k % perNumCount;
         }
 
-        return "";
+        return sb.toString();
     }
 
     public static void main(String[] args) {
