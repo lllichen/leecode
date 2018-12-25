@@ -24,7 +24,15 @@ package ink.lichen.leecode.test._12_25;
 public class GetPermutation {
 
     public String getPermutation(int n, int k) {
+        int[] res = new int[n];
+        int nums = 1;
+        for (int i = 0 ; i < n ; i++){
+            res[i] = i+1;
+            nums *= res[i];
+        }
+        for (int i = 0 ; i < n ; i ++){
 
+        }
         return "";
     }
 
