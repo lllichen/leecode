@@ -1,42 +1,44 @@
 package ink.lichen.leecode.bytecode;
 
-import java.util.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Created by lichen@daojia.com on 2018-12-19.
+ */
 public class ThreeSum {
 
-
+    //-4 -1 -1 0 1 2
+    //-1
     public List<List<Integer>> threeSum(int[] nums) {
-        int n = nums.length;
-        List<List<Integer>> ans = new ArrayList<>();
+
         Arrays.sort(nums);
-        for (int i = 0 ; i < n-2; i++ ){
-            int val_1 = nums[i];
-            int begin = i+1; int end = n-1;
-            while (begin < end){
-                int val_2 = nums[begin];
-                int val_3 = nums[end];
-                int sum = val_1+val_2+val_3;
+
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = 0 ; i < nums.length-2;i++){
+            int left = i+1;int right = nums.length-1;
+            while (left< right){
+                int sum = nums[i] + nums[left]+nums[right];
                 if (sum < 0){
-                    begin ++;
+                    left++;
                 }else if (sum > 0){
-                    end--;
-                }else {
-                    ans.add(Arrays.asList(val_1,val_2,val_3));
-                    while (begin < --end && nums[end] == nums[end + 1]);
-                    while (++begin < end && nums[begin] == nums[begin - 1]);
+                    right--;
+                }else{
+                    ans.add(Arrays.asList(nums[i],nums[left],nums[right]));
+                    while (left < --right && nums[right] == nums[right + 1]);
+                    while (right > ++left && nums[left] == nums[left - 1]);
                     while (i < nums.length - 2 && nums[i] == nums[i + 1]) {
                         i++;
                     }
                 }
             }
         }
-
-
         return ans;
     }
 
     public static void main(String[] args) {
-        Set set = new HashSet<Integer>();
-        System.out.println(set.remove(1));
+
     }
 }

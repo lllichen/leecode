@@ -28,9 +28,6 @@ import java.util.List;
  */
 public class GetPermutation {
 
-
-    private List<Integer> k = new ArrayList<>();
-
     public String getPermutation(int n, int k) {
         int[] num = new int[n];
         int perNumCount = 1;
