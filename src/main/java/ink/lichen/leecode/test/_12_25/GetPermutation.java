@@ -25,17 +25,27 @@ public class GetPermutation {
 
     public String getPermutation(int n, int k) {
         int[] res = new int[n];
-        int nums = 1;
+        int perNumCount = 1;
         for (int i = 0 ; i < n ; i++){
             res[i] = i+1;
-            nums *= res[i];
+            perNumCount *= res[i];
         }
 
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0 ; i < n ; i ++){
-            k = 6 % 3;
-            int t = 3 ;
+            perNumCount = perNumCount / (n - i);
+            perNumCount = perNumCount/res[n-1-i];
+            int t = k/ perNumCount;
+            k = k % perNumCount;
+            if (k != 0){
+                sb.append(t+1);
+            }else {
+                sb.append(t);
+            }
+
+
+
         }
 
         return "";
