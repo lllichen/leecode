@@ -31,8 +31,11 @@ public class GetPermutation {
             nums *= res[i];
         }
 
+        StringBuilder sb = new StringBuilder();
+
         for (int i = 0 ; i < n ; i ++){
             k = 6 % 3;
+            int t = 3 ;
         }
 
         return "";
