@@ -6,8 +6,24 @@ package ink.lichen.leecode.test._12_25;
 public class FindCircleNum {
 
     public int findCircleNum(int[][] M) {
+        int n = M.length;
+        int num = 0;
+        boolean[] hasVisited = new boolean[n];
+        for (int i = 0 ; i < n; i ++){
+            if (!hasVisited[i]){
+                help(M,i,hasVisited);
+                num ++;
+            }
+        }
+        return num;
+    }
 
-
-        return 0;
+    private void help(int[][] M, int i, boolean[] hasVisited){
+        hasVisited[i] = true;
+        for (int k = 0 ; k < M.length; k++){
+            if (M[i][k] == 1 && !hasVisited[k]){
+                help(M,k,hasVisited);
+            }
+        }
     }
 }
