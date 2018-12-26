@@ -2,7 +2,6 @@ package ink.lichen.leecode.tree.nt;
 
 import ink.lichen.leecode.support.Node;
 
-import java.util.List;
 
 /**
  * Created by lichen@daojia.com on 2018-12-15.
@@ -15,6 +14,7 @@ public class MaxDepth {
             return 1;
         }
         int depth = 0;
+//        "".e
         help(root, depth);
         return depth;
     }

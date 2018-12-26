@@ -1,5 +1,6 @@
 package ink.lichen.leecode.bytecode;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,10 +33,8 @@ public class ThreeSum {
                         i++;
                     }
                 }
-
             }
         }
-
         return ans;
     }
 
