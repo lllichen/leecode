@@ -14,16 +14,13 @@ public class MergeKLists {
     }
 
     private ListNode mergeKLists(ListNode[] lists, int left, int right) {
-        if (left < right)
-        {
-            int center = (left + right)>>1;
-            ListNode l1 = mergeKLists(lists,left,center);
-            ListNode l2 = mergeKLists(lists,center+1,right);
-            return merge(l1,l2);
-
-        } else {
+        if (left >= right){
             return lists[left];
         }
+        int center = (left + right)>>1;
+        ListNode l1 = mergeKLists(lists,left,center);
+        ListNode l2 = mergeKLists(lists,center+1,right);
+        return merge(l1,l2);
     }
 
 
