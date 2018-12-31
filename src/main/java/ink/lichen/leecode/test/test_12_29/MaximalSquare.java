@@ -16,8 +16,48 @@ package ink.lichen.leecode.test.test_12_29;
 public class MaximalSquare {
 
 
-    public int maximalSquare(char[][] matrix) {
+//    public int maximalSquare(char[][] matrix) {
+//        int i = matrix.length;
+//        if (i == 0){
+//            return 0;
+//        }
+//        int j = matrix[0].length;
+//        int max = 0;
+//        int [][] res = new int[i+1][j+1];
+//        for (int p = 0; p < i; p++){
+//            for (int q = 0; q < j; q++){
+//                if(matrix[p][q] - '1' == 0){
+//                    res[p+1][q+1] = Math.min(res[p][q] ,Math.min(res[p+1][q],res[p][q+1])) +1;
+//                    if (max < res[p+1][q+1]){
+//                        max = res[p+1][q+1];
+//                    }
+//                }
+//            }
+//        }
+//        return max*max;
+//    }
 
-        return 0;
+    public int maximalSquare(char[][] matrix) {
+        int i = matrix.length;
+        if (i == 0){
+            return 0;
+        }
+        int j = matrix[0].length;
+        int max = 0;
+        int [] res = new int[i+1];
+
+        for (int p = 0; p < i; p++){
+            int pre = 0;
+            for (int q = 0; q < j; q++){
+                if(matrix[p][q] - '1' == 0){
+                    res[q+1] = Math.min(res[q] ,Math.min(pre,res[q+1])) +1;
+                    pre = res[q+1];
+                    if (max < res[q+1]){
+                        max = res[q+1];
+                    }
+                }
+            }
+        }
+        return max*max;
     }
 }
