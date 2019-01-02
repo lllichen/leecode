@@ -33,6 +33,10 @@ public class AllOne {
         String val(){
             return set.iterator().next();
         }
+
+        boolean isEmpty(){
+            return set.isEmpty();
+        }
     }
 
     Node max;
@@ -41,15 +45,18 @@ public class AllOne {
 
     Map<String,Integer> map;
 
+    Map<Integer,Node> nodeMap;
+
 
     /**
      * Initialize your data structure here.
      */
     public AllOne() {
         map = new HashMap<>();
-        max = new Node(null,null);
-        min = new Node(max,null);
-        max.next = min;
+        nodeMap = new HashMap<Integer,Node>();
+        min = new Node(null,null);
+        max = new Node(min,null);
+        min.next = max;
     }
 
     /**
@@ -58,8 +65,38 @@ public class AllOne {
     public void inc(String key) {
         Integer val = map.get(key) ;
         if (val != null){
-            Integer old = val;
+            Integer oldVal = val;
+            Node oldNode = nodeMap.get(oldVal);
+            oldNode.remove(key);
+            if (oldNode.isEmpty()){
+                oldNode.pre.next = oldNode.next;
+                oldNode.next.pre = oldNode.pre;
+                oldNode = oldNode.pre;
+            }
+
+            Integer newVal = val+1;
             map.put(key,val+1);
+            Node newNode = nodeMap.get(newVal);
+            if (newNode == null) {
+                newNode = new Node(oldNode, oldNode.next);
+                //mark
+                oldNode.next.pre = oldNode.next = newNode;
+
+                nodeMap.put(newVal, newNode);
+            }
+                newNode.add(key);
+
+        }else {
+            map.put(key,1);
+            Node node = nodeMap.get(1);
+            if (node == null){
+                node = new Node(min,min.next);
+                min.next.pre = min.next = node;
+                node.add(key);
+                nodeMap.put(1,node);
+            }else {
+                node.add(key);
+            }
         }
     }
 
@@ -68,14 +105,42 @@ public class AllOne {
      * Decrements an existing key by 1. If Key's value is 1, remove it from the data structure.
      */
     public void dec(String key) {
+        Integer val = map.get(key);
+        if (val == 1){
+            map.remove(key);
+            Node old = min.next;
+            old.remove(key);
+            if (old.isEmpty()){
+                nodeMap.remove(1);
+                min.next = old.next;
+                old.next.pre = min;
+            }
+        }else {
+            Node old = nodeMap.get(val);
+            old.remove(key);
+            if (old.isEmpty()){
+                old.pre.next = old.next;
+                old.next.pre = old.pre;
+                old = old.next;
+            }
+            val = val-1;
+            map.put(key,val);
+            Node newNode = nodeMap.get(val);
+            //check isEmpty
+            if (newNode.isEmpty()){
+                newNode = new Node(old.pre,old);
+                old.pre.next = old.pre = newNode;
+            }
 
+            newNode.add(key);
+        }
     }
 
     /**
      * Returns one of the keys with maximal value.
      */
     public String getMaxKey() {
-        Node node = max.next;
+        Node node = max.pre;
         if (node == min){
             return "";
         }else {
@@ -88,11 +153,23 @@ public class AllOne {
      */
     public String getMinKey() {
 
-        Node node = min.pre;
+        Node node = min.next;
         if (node == max){
             return "";
         }else {
             return node.val();
         }
+    }
+
+
+    public static void main(String[] args) {
+        AllOne allOne = new AllOne();
+        allOne.inc("a");
+        allOne.dec("a");
+        allOne.inc("a");
+        allOne.inc("c");
+        allOne.inc("c");
+        System.out.println(allOne.getMaxKey());
+        System.out.println(allOne.getMinKey());
     }
 }
