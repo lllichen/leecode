@@ -106,6 +106,9 @@ public class AllOne {
      */
     public void dec(String key) {
         Integer val = map.get(key);
+        if (val == null){
+            return;
+        }
         if (val == 1){
             map.remove(key);
             Node old = min.next;
@@ -131,7 +134,6 @@ public class AllOne {
                 newNode = new Node(old.pre,old);
                 old.pre.next = old.pre = newNode;
             }
-
             newNode.add(key);
         }
     }
@@ -162,14 +164,21 @@ public class AllOne {
     }
 
 
+//    ["AllOne","inc","inc","inc","dec","inc","inc","getMaxKey","dec","dec","dec","getMaxKey"]
+//            [[],["hello"],["world"],["hello"],["world"],["hello"],["leet"],[],["hello"],["hello"],["hello"],[]]
+
     public static void main(String[] args) {
         AllOne allOne = new AllOne();
-        allOne.inc("a");
-        allOne.dec("a");
-        allOne.inc("a");
-        allOne.inc("c");
-        allOne.inc("c");
+        allOne.inc("hello");
+        allOne.inc("world");
+        allOne.inc("hello");
+        allOne.dec("world");
+        allOne.inc("hello");
+        allOne.inc("leet");
         System.out.println(allOne.getMaxKey());
-        System.out.println(allOne.getMinKey());
+        allOne.dec("hello");
+        allOne.dec("hello");
+        allOne.dec("hello");
+        System.out.println(allOne.getMaxKey());
     }
 }
