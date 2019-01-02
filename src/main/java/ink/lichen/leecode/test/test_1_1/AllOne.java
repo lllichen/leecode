@@ -3,6 +3,7 @@ package ink.lichen.leecode.test.test_1_1;
 public class AllOne {
 
 
+
     /**
      * Initialize your data structure here.
      */
@@ -29,6 +30,7 @@ public class AllOne {
      */
     public String getMaxKey() {
 
+        return "";
     }
 
     /**
@@ -36,5 +38,6 @@ public class AllOne {
      */
     public String getMinKey() {
 
+        return "";
     }
 }
