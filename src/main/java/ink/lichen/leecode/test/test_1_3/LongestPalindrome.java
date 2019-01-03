@@ -6,6 +6,11 @@ package ink.lichen.leecode.test.test_1_3;
  * 输入: "babad"
  * 输出: "bab"
  * 注意: "aba" 也是一个有效答案。
+ *
+ *          // pal[5][5] i=5,j=5
+ *         //pal[4][5]  i=5,j=4
+ *         //pal[3][5]  i=5,j=3 pal[4][4]
+ *         //pal[2][5]  i=5,j=2 pal[3][4]
  */
 public class LongestPalindrome {
 
