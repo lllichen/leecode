@@ -61,10 +61,4 @@ public class MyAtoi {
         }
     }
 
-    public static void main(String[] args) {
-        for (int i = 0;;i++){
-            String x = i+"".intern();
-            System.out.println(x);
-        }
-    }
 }
