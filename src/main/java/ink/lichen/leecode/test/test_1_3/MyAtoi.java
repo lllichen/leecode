@@ -62,7 +62,9 @@ public class MyAtoi {
     }
 
     public static void main(String[] args) {
-        MyAtoi myAtoi = new MyAtoi();
-        System.out.println(myAtoi.myAtoi("2147483648"));
+        for (int i = 0;;i++){
+            String x = i+"".intern();
+            System.out.println(x);
+        }
     }
 }

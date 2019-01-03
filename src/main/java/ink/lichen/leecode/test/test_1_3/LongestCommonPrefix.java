@@ -6,4 +6,9 @@ package ink.lichen.leecode.test.test_1_3;
 public class LongestCommonPrefix {
 
 
+    public String longestCommonPrefix(String[] strs) {
+
+        return "";
+    }
+
 }
