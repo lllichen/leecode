@@ -1,5 +1,7 @@
 package ink.lichen.leecode.test.test_1_3;
 
+import java.util.concurrent.Executors;
+
 /**
  * Created by lichen@daojia.com on 2019-1-3.
  */
@@ -16,11 +18,11 @@ public class LongestCommonPrefix {
         for (int i = 0 ; i < n ; i++){
 
         }
+
         for (int i = 0 ; i < n; i++)
         {
 
         }
-
         return "";
     }
 
