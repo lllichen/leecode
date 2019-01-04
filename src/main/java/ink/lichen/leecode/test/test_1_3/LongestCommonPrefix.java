@@ -10,7 +10,11 @@ public class LongestCommonPrefix {
         String res = "";
         int n = strs.length;
         if ( n == 0) {
-            return "";
+            return res;
+        }
+
+        for (int i = 0 ; i < n ; i++){
+
         }
         for (int i = 0 ; i < n; i++)
         {
