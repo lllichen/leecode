@@ -4,6 +4,10 @@ import java.util.concurrent.Executors;
 
 /**
  * Created by lichen@daojia.com on 2019-1-3.
+ *
+ * 输入: ["flower","flow","flight"]
+ * 输出: "fl"
+ *
  */
 public class LongestCommonPrefix {
 
