@@ -18,16 +18,30 @@ public class LongestCommonPrefix {
         if ( n == 0) {
             return res;
         }
-
+        if (n == 1){
+            return strs[0];
+        }
+        int min = 0;
         for (int i = 0 ; i < n ; i++){
-
+            if (strs.length < min){
+                min = strs.length;
+            }
+        }
+        if (min == 0){
+            return res;
         }
 
-        for (int i = 0 ; i < n; i++)
+        String temp = strs[0];
+        for (int i = 0 ; i < min; i++)
         {
-
+            temp.charAt(i);
+            for (int j = 1 ; j < n; j++){
+                if (strs[j].charAt(i) != temp.charAt(i)){
+                    return temp.substring(0,i);
+                }
+            }
         }
-        return "";
+        return res;
     }
 
 }
