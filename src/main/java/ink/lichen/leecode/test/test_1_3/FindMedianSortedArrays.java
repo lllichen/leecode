@@ -24,7 +24,9 @@ public class FindMedianSortedArrays {
         int cutL = 0, cutR = N1;
         int cut1 = N1/2;
         int cut2 = size/2 - cut1;
-
+         //   L1 R1
+        //1 2 3
+        //4 5 6 7 8
         while (cut1 <= N1) {
             cut1 = (cutR - cutL) / 2 + cutL;
             cut2 = size / 2 - cut1;
