@@ -8,15 +8,12 @@ import java.util.Stack;
  */
 public class IsValid {
 
-    private boolean ret (char c){
+    private char ret (char c){
         switch (c){
-            case '(': return false;
-            case '{': return false;
-            case '[': return false;
-            case ')': return true;
-            case ']': return true;
-            case '}': return true;
-            default:return false;
+            case '(': return ')';
+            case '{': return '}';
+            case '[': return ']';
+            default:return ' ';
         }
     }
 
@@ -29,20 +26,23 @@ public class IsValid {
         Stack<Character> stack = new Stack<>();
 
         for (int i = 0 ; i < n ; i ++){
-            if (!ret(s.charAt(i))){
+            if (s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '['){
                 stack.push(s.charAt(i));
             }else {
                 if (stack.isEmpty()){
                     return false;
                 }
-                stack.pop();
+                char c = stack.pop();
+                if (c != ret(s.charAt(i))){
+                    return false;
+                }
             }
         }
 
-        if (stack.isEmpty()){
-            return true;
-        }else {
+        if (!stack.isEmpty()){
             return false;
         }
+
+        return true;
     }
 }
