@@ -10,9 +10,9 @@ public class IsValid {
 
     private char ret (char c){
         switch (c){
-            case '(': return ')';
-            case '{': return '}';
-            case '[': return ']';
+            case ')': return '(';
+            case '}': return '{';
+            case ']': return '[';
             default:return ' ';
         }
     }
@@ -44,5 +44,10 @@ public class IsValid {
         }
 
         return true;
+    }
+
+    public static void main(String[] args) {
+        IsValid isValid = new IsValid();
+        System.out.println(isValid.isValid("()"));
     }
 }
