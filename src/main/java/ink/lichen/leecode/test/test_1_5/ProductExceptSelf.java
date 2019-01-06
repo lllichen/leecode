@@ -12,7 +12,7 @@ public class ProductExceptSelf {
             return nums;
         }
         int [] res = new int[n];
-
+        res[0] = 1;
         int left = 1;
         int right = 1;
         for (int i = 1; i < n ;i++){
@@ -22,7 +22,7 @@ public class ProductExceptSelf {
 
         for (int i = n-1; i >=0 ;i-- ){
             right = right * nums[i+1];
-            res[i] = right;
+            res[i] = right * res[i];
         }
 
         return res;
