@@ -10,10 +10,11 @@ public class GetIntersectionNode {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode curA = headA;
         ListNode curB = headB;
+        // meet null or same node
         while (curA != curB ){
-
+            curA = curA == null ? headB : curA.next;
+            curB = curB == null ? headA : curB.next;
         }
-
-        return null;
+        return curA;
     }
 }
