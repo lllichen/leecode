@@ -25,8 +25,22 @@ public class SortList {
 
     public ListNode merge(ListNode lt, ListNode rt){
         ListNode dummy = new ListNode(-1);
+        ListNode cur = dummy;
         while (lt != null && rt != null){
-
+            if (lt.val < rt.val){
+                cur.next = lt;
+                lt = lt.next;
+            }else {
+                cur.next = rt;
+                rt = rt.next;
+            }
+            cur = cur.next;
         }
+        cur.next = lt != null ? lt: rt;
+        return dummy.next;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new SortList().sortList(new ListNode(1)));
     }
 }
