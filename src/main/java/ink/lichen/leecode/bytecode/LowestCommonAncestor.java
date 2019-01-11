@@ -64,8 +64,10 @@ public class LowestCommonAncestor {
         root.left = left5;
         root.right = right1;
 
-        root.left.left = new TreeNode(6);
-        root.left.right = new TreeNode(2);
+        TreeNode left6 = new TreeNode(6);
+        TreeNode right2 = new TreeNode(2);
+        root.left.left = left6;
+        root.left.right = right2;
 
         TreeNode left7 = new TreeNode(7);
         TreeNode right4 = new TreeNode(4);
@@ -78,6 +80,6 @@ public class LowestCommonAncestor {
 
 
         LowestCommonAncestor lowestCommonAncestor = new LowestCommonAncestor();
-        lowestCommonAncestor.lowestCommonAncestor(root,left5,right1);
+        lowestCommonAncestor.lowestCommonAncestor(root,left7,right4);
     }
 }
