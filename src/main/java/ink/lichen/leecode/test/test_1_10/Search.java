@@ -24,13 +24,13 @@ public class Search {
                     return center;
                 }
             }else if (target < pivot){
-                    if (nums[center] >= pivot || nums[center] < target){
-                        left = center+1;
-                    }else if (nums[center]> target && nums[center] < pivot){
-                        right = center - 1;
-                    }else {
-                        return center;
-                    }
+                if (nums[center] >= pivot || nums[center] < target){
+                    left = center+1;
+                }else if (nums[center]> target && nums[center] < pivot){
+                    right = center - 1;
+                }else {
+                    return center;
+                }
             }else {
                 return 0;
             }
