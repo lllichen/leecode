@@ -24,8 +24,23 @@ public class FindKthLargest {
             int i = left,j= right-1;
             for (;;){
                 while (nums[++i]>pivot){};
-                while (nums[--j]<pivot){};
-
+                while (j > left && nums[--j]<pivot){};
+                if (i < j){
+                    swap(nums,i,j);
+                }else {
+                    break;
+                }
+            }
+            if (i < right-1){
+                swap(nums,i,right-1);
+            }
+            if (k-1 < i){
+                quickSelect(nums,left,i-1,k);
+            }else if (k-1 > i){
+                quickSelect(nums,i+1,right,k);
+            }else {
+                System.out.println("OK!");
+                return ;
             }
         }
     }
@@ -45,9 +60,13 @@ public class FindKthLargest {
         return nums[right-1];
     }
 
-    private int swap(int[] nums,int a, int b){
+    private void swap(int[] nums,int a, int b){
         int t = nums[a];
         nums[a] = nums[b];
         nums[b] = t;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new FindKthLargest().findKthLargest(new int[]{3,2,1,5,6,4},2));
     }
 }
