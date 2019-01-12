@@ -11,11 +11,14 @@ public class GenerateParenthesis {
 
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
-        help(res);
+        help(res,"",0,n);
         return res;
     }
 
-    public void help(List<String> res ){
+    public void help(List<String> res,String str,int i, int n){
+        if (str.length() == 2*n){
+            res.add(str);
+        }
 
     }
 
