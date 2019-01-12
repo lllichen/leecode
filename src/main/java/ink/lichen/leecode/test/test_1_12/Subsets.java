@@ -37,4 +37,9 @@ public class Subsets {
             list.remove(list.size() -1);
         }
     }
+
+
+    public static void main(String[] args) {
+        new Subsets().subsets(new int[]{1,2,3});
+    }
 }
