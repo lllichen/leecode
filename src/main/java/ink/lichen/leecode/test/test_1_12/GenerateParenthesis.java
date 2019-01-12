@@ -21,7 +21,6 @@ public class GenerateParenthesis {
 
 
     /**
-     *
      *  33
      *  32
      *  31
