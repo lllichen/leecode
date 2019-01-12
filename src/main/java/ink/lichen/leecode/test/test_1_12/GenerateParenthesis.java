@@ -19,21 +19,19 @@ public class GenerateParenthesis {
         return res;
     }
 
-    public void backtrack(List<String> list, String str ,Integer open,Integer close, Integer max)
-    {
-        if (str.length() == 2*max){
-            list.add(str);
+    private void backtrack(List<String> res, String str, int open, int close, int max) {
+        if (str.length() == max * 2 ){
+            res.add(str);
             return;
         }
         if (open < max){
-            String t = str +"(";
-            backtrack(list,t,open+1,close,max);
+            backtrack(res,str+"(",open+1,close,max);
         }
         if (close < open){
-            String t = str +")";
-            backtrack(list,t,open,close+1,max);
+            backtrack(res,str+")",open,close+1,max);
         }
     }
+
 
     public static void main(String[] args) {
         new GenerateParenthesis().generateParenthesis(3);
