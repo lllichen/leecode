@@ -40,6 +40,6 @@ public class Subsets {
 
 
     public static void main(String[] args) {
-        new Subsets().subsets(new int[]{1,2,3});
+        new Subsets().subsets(new int[]{1,2,3,4});
     }
 }
