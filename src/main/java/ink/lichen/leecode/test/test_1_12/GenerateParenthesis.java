@@ -19,17 +19,6 @@ public class GenerateParenthesis {
         return res;
     }
 
-
-    /**
-     *  33
-     *  32
-     *  31
-     *  30
-     *  20
-     *  10
-     *  00
-     *
-     */
     public void backtrack(List<String> list, String str ,Integer open,Integer close, Integer max)
     {
         if (str.length() == 2*max){
