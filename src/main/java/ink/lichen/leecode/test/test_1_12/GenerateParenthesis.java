@@ -32,16 +32,17 @@ public class GenerateParenthesis {
      */
     public void backtrack(List<String> list, String str ,Integer open,Integer close, Integer max)
     {
-        if (str.length() == max*2){
+        if (str.length() == 2*max){
             list.add(str);
             return;
         }
-
         if (open < max){
-            backtrack(list,str+"(",open+1,close,max);
+            String t = str +"(";
+            backtrack(list,t,open+1,close,max);
         }
         if (close < open){
-            backtrack(list,str+")",open,close+1,max);
+            String t = str +")";
+            backtrack(list,t,open,close+1,max);
         }
     }
 
