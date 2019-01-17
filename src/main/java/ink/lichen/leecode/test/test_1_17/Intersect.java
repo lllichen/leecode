@@ -19,12 +19,14 @@ public class Intersect {
         int j=0;
         for (int i = 0 ; i < nums2.length; i++){
             int value = map.getOrDefault(nums2[i],0);
-            if (value > 0 && j != i){
-                nums2[j++] = nums2[i];
-            }else {
-                j++;
+            if (value > 0){
+                if (j != i){
+                    nums2[j++] = nums2[i];
+                }else {
+                    j++;
+                }
+                map.put(nums2[i],value-1);
             }
-            map.put(nums2[i],value-1);
         }
         return Arrays.copyOf(nums2,j);
     }
