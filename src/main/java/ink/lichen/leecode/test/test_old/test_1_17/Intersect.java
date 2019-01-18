@@ -1,4 +1,4 @@
-package ink.lichen.leecode.test.test_1_17;
+package ink.lichen.leecode.test.test_old.test_1_17;
 
 import java.util.Arrays;
 import java.util.HashMap;
