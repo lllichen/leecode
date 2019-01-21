@@ -10,10 +10,14 @@ public class Reverse {
         int max = Integer.MAX_VALUE/10;
         int min = Integer.MIN_VALUE/10;
         int res = 0;
-        while (x / 10 != 0 ){
+        while (x  != 0 ){
+            if (res < min || res > max){
+                return 0;
+            }
             res = res * 10 + x%10;
-            x = x/10;
+            x = x / 10;
         }
+        return res;
 
     }
 }
