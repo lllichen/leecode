@@ -7,7 +7,14 @@ public class ReverseString {
 
 
     public String reverseString(String s) {
-
-        return "";
+        char[] chars = s.toCharArray();
+        int n = chars.length;
+        int left = 0,right = n-1;
+        while (left <right){
+            char tmp = chars[left];
+            chars[left++] = chars[right];
+            chars[right--] = tmp;
+        }
+        return new String(chars);
     }
 }
