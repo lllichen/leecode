@@ -23,9 +23,12 @@ public class IsPalindrome {
             while (j>=i && !isValid(s.charAt(j))){
                 j--;
             }
+            System.out.println(s.charAt(i)+":"+s.charAt(j));
             if (s.charAt(i) != s.charAt(j)){
                 return false;
             }
+            i++;
+            j--;
         }
         return true;
     }
@@ -38,5 +41,9 @@ public class IsPalindrome {
             return true;
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        new IsPalindrome().isPalindrome("A man, a plan, a canal: Panama");
     }
 }
