@@ -20,14 +20,12 @@ public class StrStr {
         for (int i = 0 ; i < n-m+1; i++){
             if (haystack.charAt(i) == needle.charAt(0)){
                 int j;
-                boolean flag = true;
                 for (j = 1 ; i+j < n && j < m ; j++){
                     if (haystack.charAt(i+j) != needle.charAt(j)){
-                        flag = false;
                         break;
                     }
                 }
-                if (flag)
+                if (j == m)
                     return i;
             }
         }
