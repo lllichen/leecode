@@ -17,7 +17,7 @@ public class IsPalindrome {
         s = s.toLowerCase();
         int i = 0 ,j = s.length()-1;
         while (i < j){
-            while (i<= j && !isValid(s.charAt(i))){
+            while (i <= j && !isValid(s.charAt(i))){
                 i++;
             }
             while (j>=i && !isValid(s.charAt(j))){
@@ -44,6 +44,6 @@ public class IsPalindrome {
     }
 
     public static void main(String[] args) {
-        new IsPalindrome().isPalindrome("A man, a plan, a canal: Panama");
+        new IsPalindrome().isPalindrome(".,");
     }
 }
