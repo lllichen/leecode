@@ -9,22 +9,35 @@ public class StrStr {
     public int strStr(String haystack, String needle) {
         int n = haystack.length();
         int m = needle.length();
-        if (m > n){
+
+        if (m == 0){
+            return 0;
+        }
+        if (m > n) {
             return -1;
         }
 
-        for (int i = 0 ; i < n; i++){
+        for (int i = 0 ; i < n-m+1; i++){
             if (haystack.charAt(i) == needle.charAt(0)){
                 int j;
+                boolean flag = true;
                 for (j = 1 ; i+j < n && j < m ; j++){
-                    if (haystack.charAt(i+j) == needle.charAt(j)){
+                    if (haystack.charAt(i+j) != needle.charAt(j)){
+                        flag = false;
                         break;
                     }
                 }
-                return i+j;
+                if (flag)
+                    return i;
             }
         }
-        return haystack.indexOf(needle);
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        "abc".indexOf("ac");
+//        System.out.println(new StrStr().strStr("abc","bc"));
+        System.out.println(new StrStr().strStr("mississippi","issip"));
     }
 
 }
