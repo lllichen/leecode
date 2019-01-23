@@ -12,7 +12,7 @@ public class IsPalindrome {
             return true;
         }
         if (n == 1){
-            return false;
+            return true;
         }
         s = s.toLowerCase();
         int i = 0 ,j = s.length()-1;
@@ -44,6 +44,6 @@ public class IsPalindrome {
     }
 
     public static void main(String[] args) {
-        new IsPalindrome().isPalindrome(".,");
+        new IsPalindrome().isPalindrome(" ");
     }
 }
