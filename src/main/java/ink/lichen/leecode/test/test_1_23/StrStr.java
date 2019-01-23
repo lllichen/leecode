@@ -36,7 +36,6 @@ public class StrStr {
 
     public static void main(String[] args) {
         "abc".indexOf("ac");
-//        System.out.println(new StrStr().strStr("abc","bc"));
         System.out.println(new StrStr().strStr("mississippi","issip"));
     }
 
