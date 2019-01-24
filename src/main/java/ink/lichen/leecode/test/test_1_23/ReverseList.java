@@ -9,8 +9,17 @@ public class ReverseList {
 
 
     public ListNode reverseList(ListNode head) {
-
-        return null;
+        ListNode cur = head;
+        ListNode pre = null;
+        while (cur != null){
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
     }
+
+
 
 }
