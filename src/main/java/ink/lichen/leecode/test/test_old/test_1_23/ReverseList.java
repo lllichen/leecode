@@ -1,4 +1,4 @@
-package ink.lichen.leecode.test.test_1_23;
+package ink.lichen.leecode.test.test_old.test_1_23;
 
 import ink.lichen.leecode.support.ListNode;
 

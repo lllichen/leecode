@@ -1,4 +1,4 @@
-package ink.lichen.leecode.test.test_1_21;
+package ink.lichen.leecode.test.test_old.test_1_21;
 
 /**
  * Created by lichen@daojia.com on 2019-1-21.

@@ -1,4 +1,4 @@
-package ink.lichen.leecode.test.test_1_21;
+package ink.lichen.leecode.test.test_old.test_1_21;
 
 import java.util.HashSet;
 import java.util.Set;

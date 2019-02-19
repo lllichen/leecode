@@ -1,7 +1,6 @@
-package ink.lichen.leecode.test.test_1_13;
+package ink.lichen.leecode.test.test_old.test_1_13;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class GrayCode {
