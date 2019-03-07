@@ -60,9 +60,9 @@ public class WordBreak2 {
         }
     }
 
-
     public static void main(String[] args) {
         WordBreak2 wordBreak2 = new WordBreak2();
-        wordBreak2.wordBreak("catsanddog", Arrays.asList("cat", "cats", "and", "sand", "dog"));
+        wordBreak2.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                Arrays.asList("a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"));
     }
 }
