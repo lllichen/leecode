@@ -18,11 +18,11 @@ public class WordBreak {
         Set<String> set = new HashSet<>(wordDict);
         boolean[] dp = new boolean[s.length()+1];
         dp[0] = true;
-        for (int i = 1 ; i < s.length();i++){
+        for (int i = 0 ; i < s.length();i++){
             for (int j = i;j >=0; j--){
                 String substring = s.substring(j,i+1);
                 if (set.contains(substring) && dp[j]){
-                    dp[j] = true;
+                    dp[i+1] = true;
                     break;
                 }
             }
@@ -32,6 +32,6 @@ public class WordBreak {
 
     public static void main(String[] args) {
         WordBreak wordBreak = new WordBreak();
-        wordBreak.wordBreak("leetcode", Arrays.asList("leet","code"));
+        wordBreak.wordBreak("a", Arrays.asList("a"));
     }
 }
