@@ -10,10 +10,11 @@ public class MaxProduct {
 
     public int maxProduct(int[] nums) {
         int n = nums.length;
-
         if (n == 0){
             return 0;
         }
+
+
 
         return 0;
     }
