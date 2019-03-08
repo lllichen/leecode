@@ -13,7 +13,13 @@ public class MaxProduct {
         if (n == 0){
             return 0;
         }
+        int [] right = new int[n+1];
+        int [] neg = new int[n+1];
+        right[0] = 1;neg[0] = 1;
+        for (int i = 0; i < n ; i++){
+            int val = right[i]*nums[i];
 
+        }
 
 
         return 0;
