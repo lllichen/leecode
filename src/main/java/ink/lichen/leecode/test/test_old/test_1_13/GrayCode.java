@@ -19,9 +19,9 @@ public class GrayCode {
     }
 
     public static void main(String[] args) {
-        new GrayCode().grayCode(3);
+//        new GrayCode().grayCode(3);
 //        System.out.println(Integer.toBinaryString(8));
 //        System.out.println(1<<3);
-        System.out.println(1^1);
+        System.out.println(10>>32);
     }
 }
