@@ -30,6 +30,7 @@ public class ProductExceptSelf {
     }
 
     public static void main(String[] args) {
+
         new ProductExceptSelf().productExceptSelf(new int[]{1,2,3,4});
     }
 }
