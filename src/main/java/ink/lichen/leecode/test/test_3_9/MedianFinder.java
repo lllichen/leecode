@@ -23,21 +23,5 @@ public class MedianFinder {
         else return max.peek();
     }
 
-    public static void main(String[] args) {
-        MedianFinder m = new MedianFinder();
-        m.addNum(1);
-        m.addNum(2);
-//        m.findMedian();// -> 1.5
-        m.addNum(3);
-        m.addNum(3);
-        m.addNum(3);
-        m.addNum(3);
-        m.addNum(2);
-        m.addNum(2);
-        m.addNum(5);
-        m.addNum(6);
-        m.findMedian(); //-> 2
-    }
-
 }
 
