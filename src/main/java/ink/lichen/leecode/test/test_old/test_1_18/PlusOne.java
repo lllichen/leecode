@@ -1,5 +1,10 @@
 package ink.lichen.leecode.test.test_old.test_1_18;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+
 /**
  * Created by lichen@daojia.com on 2019-1-18.
  */
@@ -34,6 +39,34 @@ public class PlusOne {
         }
 
         return digits;
+    }
+
+
+    public static Map<String, Long> allocate(Long amount, Map<String, Long> rateMap) {
+        Map<String,Long> result = new HashMap<>();
+        Long sum = 0L;
+        Long amountSum = 0L;
+
+         Set<String> set = rateMap.keySet();
+         for (String key: set){
+             Long value = rateMap.get(key);
+             sum += value;
+         }
+
+         String[] keys = (String[]) set.toArray();
+         Random random = new Random();
+
+        for (String key: set){
+            Long value = rateMap.get(key);
+            double rate = value*1.0/sum;
+            result.put(key,new Double(rate*amount).longValue());
+            amountSum+=Double.doubleToLongBits(rate*amount);
+        }
+        Long remain = amount-amountSum;
+
+        String randomKey = keys[random.nextInt(keys.length)];
+         result.put(randomKey,rateMap.get(randomKey)+remain) ;
+        return result;
     }
 
     public static void main(String[] args) {
