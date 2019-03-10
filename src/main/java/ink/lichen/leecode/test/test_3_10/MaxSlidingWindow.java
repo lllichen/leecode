@@ -15,8 +15,9 @@ public class MaxSlidingWindow {
         for(int i = 0 ; i < k ; i++){
             queue.add(nums[i]);
         }
-        for (int i = k;i < n ; i++){
+        for (int i = k,j = 0;i < n ; i++,j++){
             result[i-k] = queue.peek();
+            queue.remove(nums[j]);
             queue.add(nums[i]);
         }
         result[n-k] = queue.peek();
