@@ -34,9 +34,14 @@ public class PostorderTraversal {
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()){
-            TreeNode left = stack.pop();
-
-//            result.add(stack.)
+            TreeNode node = stack.pop();
+            result.addFirst(node.val);
+            if (node.left != null){
+                stack.push(node.left);
+            }
+            if (node.right != null){
+                stack.push(node.right);
+            }
         }
         return result;
     }
