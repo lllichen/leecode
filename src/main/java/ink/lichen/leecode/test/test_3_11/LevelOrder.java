@@ -21,9 +21,22 @@ public class LevelOrder {
 
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-        if (queue.isEmpty()){
-
+        while (!queue.isEmpty()){
+            int size = queue.size();
+            List<Integer> temp = new ArrayList<>();
+            while (size > 0){
+                TreeNode node = queue.poll();
+                temp.add(node.val);
+                if (node.left != null){
+                    queue.add(node.left);
+                }
+                if (node.right != null){
+                    queue.add(node.right);
+                }
+                size--;
+            }
+            result.add(temp);
         }
-        return null;
+        return result;
     }
 }
