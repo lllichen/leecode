@@ -1,4 +1,4 @@
-package ink.lichen.leecode.test.test_1_18;
+package ink.lichen.leecode.test.test_old.test_1_18;
 
 public class LinkedList<T> {
 

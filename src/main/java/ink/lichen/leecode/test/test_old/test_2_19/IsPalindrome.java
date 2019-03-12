@@ -1,6 +1,4 @@
-package ink.lichen.leecode.test.test_2_19;
-
-import java.util.LinkedHashSet;
+package ink.lichen.leecode.test.test_old.test_2_19;
 
 public class IsPalindrome {
 

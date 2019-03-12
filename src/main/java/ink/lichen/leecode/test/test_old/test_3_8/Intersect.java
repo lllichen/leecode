@@ -1,9 +1,7 @@
-package ink.lichen.leecode.test.test_3_8;
+package ink.lichen.leecode.test.test_old.test_3_8;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.Map;
 
 /**

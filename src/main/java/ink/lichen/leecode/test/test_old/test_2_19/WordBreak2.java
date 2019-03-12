@@ -1,4 +1,4 @@
-package ink.lichen.leecode.test.test_2_19;
+package ink.lichen.leecode.test.test_old.test_2_19;
 
 import java.util.ArrayList;
 import java.util.Arrays;

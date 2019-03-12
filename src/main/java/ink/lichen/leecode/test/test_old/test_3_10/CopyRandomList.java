@@ -1,4 +1,4 @@
-package ink.lichen.leecode.test.test_3_10;
+package ink.lichen.leecode.test.test_old.test_3_10;
 
 public class CopyRandomList {
 
