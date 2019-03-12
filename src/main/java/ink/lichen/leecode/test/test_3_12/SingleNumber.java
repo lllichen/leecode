@@ -17,6 +17,6 @@ public class SingleNumber {
     }
 
     public static void main(String[] args) {
-
+        new SingleNumber().singleNumber(new int[]{0,1,0,1,0,1,99});
     }
 }
